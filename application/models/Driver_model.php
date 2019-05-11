@@ -20,5 +20,13 @@
             $query = $this->db->get_where('drivers',array('avail' => 1));
             return $query->result_array();
         }
+
+        public function remove_driver($driver_id){
+
+            $data = array('avail' => 0);
+
+            $this->db->where('id',$driver_id);
+            return $this->db->update('drivers',$data);
+        }
     }
 ?>

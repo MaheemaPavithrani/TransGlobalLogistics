@@ -81,6 +81,17 @@
                 redirect('admin/index');
             }
         }
+
+        public function remove_driver($driver_id){
+
+            $this->load->model('Driver_model');
+
+            $this->Driver_model->remove_driver($driver_id);
+
+            redirect('admin/get_drivers');
+
+
+        }
     }
 
 ?>
