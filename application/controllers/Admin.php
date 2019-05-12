@@ -92,6 +92,15 @@
 
 
         }
+
+        public function update_driver($driver_id){
+            
+            $this->load->model('Driver_model');
+
+            $this->Driver_model->update_driver($driver_id);
+
+            redirect('admin/get_drivers');
+        }
     }
 
 ?>
