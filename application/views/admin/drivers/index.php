@@ -66,10 +66,6 @@
             <button type="submit" class="btn btn-primary">Save</button>
           </form>
         </div>
-
-        <div class="modal-footer">
-          <a href="<?php echo base_url('admin/update_driver/'.$driver['id']);?>" class="btn btn-primary" role="button">Save</a>
-        </div>
       </div>
     </div>
 </div>

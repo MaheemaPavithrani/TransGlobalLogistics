@@ -41,7 +41,8 @@
                 </a>
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="#">Ongoing</a>
-                    <a class="dropdown-item" href="#">Past Hires</a>
+                    <a class="dropdown-item" href="#">Imports</a>
+                    <a class="dropdown-item" href="#">Exports</a>
                 </div>
             </li>
 
