@@ -24,9 +24,9 @@
         public function get_customers(){
             $data['title'] = 'Customers';
 
-            // $this->load->model('Customer_model');
+            $this->load->model('Customer_model');
 
-            // $data['drivers'] = $this->Customer_model->get_customers();
+            $data['customers'] = $this->Customer_model->get_customers();
 
             $this->load->view('admin/header');
             $this->load->view('admin/customers/index',$data);
@@ -78,7 +78,7 @@
 
                 $this->driver_model->register_driver();
 
-                redirect('admin/index');
+                redirect('admin/get_drivers');
             }
         }
 
@@ -100,6 +100,76 @@
             $this->Driver_model->update_driver($driver_id);
 
             redirect('admin/get_drivers');
+        }
+
+        public function remove_customer($customer_id){
+
+            $this->load->model('Customer_model');
+
+            $this->Customer_model->remove_customer($customer_id);
+
+            redirect('admin/get_customers');
+
+
+        }
+
+        public function update_customer($customer_id){
+            
+            $this->load->model('Customer_model');
+
+            $this->Customer_model->update_customer($customer_id);
+
+            redirect('admin/get_customers');
+        }
+
+        public function register_customer(){
+            $data['title'] = 'Add Customer';
+
+            $this->form_validation->set_rules('name','Name','required');
+            $this->form_validation->set_rules('mobile','Mobile','required');
+            $this->form_validation->set_rules('dob','Date of Birth','required');
+            $this->form_validation->set_rules('username','Username','required|callback_check_username_exists');
+            $this->form_validation->set_rules('email','Email','required|valid_email|callback_check_email_exists');
+            $this->form_validation->set_rules('password','Password','required');
+            $this->form_validation->set_rules('password2','Confirm Password','required|matches[password]');
+
+            if($this->form_validation->run()===FALSE){
+                $this->load->view('admin/header');
+                $this->load->view('admin/customers/register',$data);
+                $this->load->view('admin/footer');
+            }else{
+                $enc_password = md5($this->input->post('password'));
+
+                $this->load->model('customer_model');
+
+                $this->customer_model->register_customer($enc_password);
+
+                redirect('admin/get_customers');
+            }
+        }
+        
+        //CALLBACK FUNCTIONS
+
+        function check_username_exists($username){
+            $this->form_validation->set_message('check_username_exists','Username already exists');
+            
+            $this->load->model('customer_model');
+            if($this->customer_model->check_username_exists($username)){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        function check_email_exists($email){
+            $this->form_validation->set_message('check_email_exists','Email already registered');
+            
+            $this->load->model('customer_model');
+            if($this->customer_model->check_email_exists($email)){
+                return true;
+            }else{
+                return false;
+            }
         }
     }
 

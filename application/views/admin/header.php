@@ -30,8 +30,8 @@
                     CUSTOMERS
                 </a>
                 <div class="dropdown-menu">
-                    <a class="dropdown-item" href="admin/get_customers">View All</a>
-                    <a class="dropdown-item" href="#">Add Customer</a>
+                    <a class="dropdown-item" href="<?php echo base_url('admin/get_customers');?>">View All</a>
+                    <a class="dropdown-item" href="<?php echo base_url('admin/register_customer');?>">Add Customer</a>
                 </div>
             </li>
             
