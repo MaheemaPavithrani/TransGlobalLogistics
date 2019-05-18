@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/dashboard/">
 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/style.css">
@@ -16,7 +18,7 @@
 </head>
 <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0" id="nav">
-      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Trans Global Logistics</a>
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#"><h3>Trans Global Logistics</h3></a>
       <!-- <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> -->
       <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
@@ -30,52 +32,34 @@
         <nav class="col-md-2 d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo base_url('admin/index');?>">
-                    <span data-feather="home"></span>
-                    DASHBOARD <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                        CUSTOMERS
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="<?php echo base_url('admin/get_customers');?>">View All</a>
-                        <a class="dropdown-item" href="<?php echo base_url('admin/register_customer');?>">Add Customer</a>
-                    </div>
-                </li>
-                
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                        HIRE
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">Ongoing</a>
-                        <a class="dropdown-item" href="#">Imports</a>
-                        <a class="dropdown-item" href="#">Exports</a>
-                    </div>
-                </li>
+      
+                <a href="<?php echo base_url('admin/index');?>" class="list-group-item list-group-item-light" ><h5>DASHBOARD</h5></a>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                        DRIVER
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="<?php echo base_url('admin/get_drivers');?>">View All</a>
-                        <a class="dropdown-item" href="<?php echo base_url('admin/register_driver');?>">Add driver</a>
-                    </div>
-                </li>
+                <a href="#customer" class="list-group-item list-group-item-light" data-toggle="collapse" ><h5><i class="fa fa-users fa-fw fa-fw" aria-hidden="true"></i>CUSTOMERS</h5></a>
+                <div class="collapse" id="customer">
+                  <a href="<?php echo base_url('admin/get_customers');?>" class="list-group-item">View All</a>
+                  <a href="<?php echo base_url('admin/register_customer');?>" class="list-group-item">Add customer</a>
+                </div>
+            
+                <a href="#hire" class="list-group-item list-group-item-light" data-toggle="collapse" ><h5><i class="fa fa-file fa-fw"></i>HIRES</h5></a>
+                <div class="collapse" id="hire">
+                  <a href="" class="list-group-item">Ongoing</a>
+                  <a href="" class="list-group-item">Imports</a>
+                  <a href="" class="list-group-item">Exports</a>
+                </div>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-                        VEHICLE
-                    </a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="admin/get_vehicles">View All</a>
-                        <a class="dropdown-item" href="#">Add Vehicle</a>
-                    </div>
-                </li>
+                <a href="#drivers" class="list-group-item list-group-item-light" data-toggle="collapse" ><h5><i class="fa fa-address-card fa-fw"></i>DRIVERS</h5></a>
+                <div class="collapse" id="drivers">
+                  <a href="<?php echo base_url('admin/get_drivers');?>" class="list-group-item">View All</a>
+                  <a href="<?php echo base_url('admin/register_driver');?>" class="list-group-item">Add Driver</a>
+                </div>
+
+                <a href="#vehicle" class="list-group-item list-group-item-light" data-toggle="collapse" ><h5><i class="fa fa-truck fa-fw"></i>VEHICLES</h5></a>
+                <div class="collapse" id="vehicle">
+                  <a href="" class="list-group-item">View All</a>
+                  <a href="" class="list-group-item">Add Vehicle</a>
+                </div>
+
             </ul>
 
             <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
