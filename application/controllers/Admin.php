@@ -67,6 +67,9 @@
             $this->form_validation->set_rules('license_no','License No','required');
             $this->form_validation->set_rules('dob','Date of Birth','required');
             $this->form_validation->set_rules('nic','NIC no','required');
+            $this->form_validation->set_rules('username','Username','required|is_unique[users.username]');
+            $this->form_validation->set_rules('password','Password','required');
+
 
             if($this->form_validation->run()===FALSE){
                 $this->load->view('admin/header');
@@ -74,9 +77,13 @@
                 $this->load->view('admin/footer');
             }else{
 
-                $this->load->model('driver_model');
+                $enc_password = md5($this->input->post('password'));
 
-                $this->driver_model->register_driver();
+                $this->load->model('user_model');
+                $user_id = $this->user_model->register($enc_password);
+
+                $this->load->model('driver_model');
+                $this->driver_model->register_driver($user_id);
 
                 redirect('admin/get_drivers');
             }
@@ -128,8 +135,8 @@
             $this->form_validation->set_rules('name','Name','required');
             $this->form_validation->set_rules('mobile','Mobile','required');
             $this->form_validation->set_rules('dob','Date of Birth','required');
-            $this->form_validation->set_rules('username','Username','required|callback_check_username_exists');
-            $this->form_validation->set_rules('email','Email','required|valid_email|callback_check_email_exists');
+            $this->form_validation->set_rules('username','Username','required|is_unique[users.username]');
+            $this->form_validation->set_rules('email','Email','required|valid_email|is_unique[customers.email]');
             $this->form_validation->set_rules('password','Password','required');
             $this->form_validation->set_rules('password2','Confirm Password','required|matches[password]');
 
@@ -140,37 +147,16 @@
             }else{
                 $enc_password = md5($this->input->post('password'));
 
-                $this->load->model('customer_model');
+                $this->load->model('user_model');
+                $user_id = $this->user_model->register($enc_password);
 
-                $this->customer_model->register_customer($enc_password);
+                $this->load->model('customer_model');
+                $this->customer_model->register_customer($user_id);
 
                 redirect('admin/get_customers');
             }
         }
-        
-        //CALLBACK FUNCTIONS
-
-        function check_username_exists($username){
-            $this->form_validation->set_message('check_username_exists','Username already exists');
-            
-            $this->load->model('customer_model');
-            if($this->customer_model->check_username_exists($username)){
-                return true;
-            }else{
-                return false;
-            }
-        }
-
-        function check_email_exists($email){
-            $this->form_validation->set_message('check_email_exists','Email already registered');
-            
-            $this->load->model('customer_model');
-            if($this->customer_model->check_email_exists($email)){
-                return true;
-            }else{
-                return false;
-            }
-        }
+       
     }
 
 ?>

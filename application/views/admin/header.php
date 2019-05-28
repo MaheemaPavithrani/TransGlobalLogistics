@@ -43,7 +43,7 @@
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
       
-                <a href="<?php echo base_url('admin/index');?>" class="list-group-item list-group-item-light" style="color:black" ><h5>DASHBOARD</h5></a>
+                <a href="<?php echo base_url('admin/index');?>" class="list-group-item list-group-item-light" style="color:black" ><h5><i class="fa fa-home fa-fw"></i>  DASHBOARD</h5></a>
 
                 <a href="#customer" class="list-group-item list-group-item-light" data-toggle="collapse" style="color:black" ><h5><i class="fa fa-users fa-fw fa-fw" aria-hidden="true"></i>  CUSTOMERS</h5></a>
                 <div class="collapse" id="customer">

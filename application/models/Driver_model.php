@@ -4,13 +4,14 @@
             $this->load->database();
         }
 
-        public function register_driver(){
+        public function register_driver($user_id){
             $data = array(
                 'name' => $this->input->post('name'),
                 'license_no' => $this->input->post('license_no'),
                 'dob' => $this->input->post('dob'),
                 'nic' => $this->input->post('nic'),
-                'avail' => 1
+                'avail' => 1,
+                'user_id' => $user_id
             );
 
             return $this->db->insert('drivers',$data);

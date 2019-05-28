@@ -21,6 +21,15 @@
                     <label>NIC</label>
                     <input type="text" class="form-control" name="nic" placeholder="NIC No">
                 </div>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" class="form-control" name="username" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" class="form-control" name="password" placeholder="Password">
+                </div>
+                <input type="hidden" value="driver" name="user_type">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>

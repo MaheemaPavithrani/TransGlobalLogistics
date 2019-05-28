@@ -17,6 +17,7 @@
           <td><?php echo $driver['license_no']; ?></td>
           <td><?php echo $driver['dob']; ?></td>
           <td><?php echo $driver['nic']; ?></td>
+          <!-- <td><?php echo $driver['username']; ?></td> -->
           <td><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete">Delete</button>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#edit">Edit</button>
           </td>

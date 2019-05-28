@@ -4,43 +4,28 @@
             $this->load->database();
         }
 
-        public function register_customer($enc_password){
+        public function register_customer($user_id){
             $data = array(
                 'name' => $this->input->post('name'),
                 'mobile' => $this->input->post('mobile'),
                 'email' => $this->input->post('email'),
                 'dob' => $this->input->post('dob'),
-                'username' => $this->input->post('username'),
-                'password' => $enc_password,
-                'avail' => 1
+                'avail' => 1,
+                'user_id' => $user_id
             );
 
             return $this->db->insert('customers',$data);
         }
 
-        public function check_username_exists($username){
-            $query = $this->db->get_where('customers',array('username' => $username));
-
-            if(empty($query->row_array())){
-                return true;
-            }else{
-                return false;
-            }
-        }
-
-        public function check_email_exists($email){
-            $query = $this->db->get_where('customers',array('email' => $email));
-
-            if(empty($query->row_array())){
-                return true;
-            }else{
-                return false;
-            }
-        }
-
         public function get_customers($customer_id = false){
             if($customer_id === false){
-                $query = $this->db->get_where('customers',array('avail' => 1));
+                
+                $this->db->select('*');
+                $this->db->from('customers');
+                $this->db->join('users','users.id = customers.user_id');
+                $this->db->where('customers.avail',1);
+                $query = $this->db->get();
+
                 return $query->result_array();
             }
             $query = $this->db->get_where('customers',array(
@@ -63,7 +48,6 @@
                 'name' => $this->input->post('name'),
                 'email' => $this->input->post('email'),
                 'dob' => $this->input->post('dob'),
-                'username' => $this->input->post('username'),
                 'mobile' => $this->input->post('mobile'),
             );
 
