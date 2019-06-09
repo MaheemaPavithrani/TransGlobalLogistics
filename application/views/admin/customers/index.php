@@ -54,23 +54,23 @@
                 <input type="hidden" name="id" value="<?php echo $customer['id'];?>">
                 <div class="form-group">
                   <label>Name</label>
-                  <input type="text" class="form-control"  name="name" placeholder="Name" value="<?php echo $customer['name'];?>">
+                  <input type="text" class="form-control"  name="name" placeholder="Name" value="<?php echo $customer['name'];?>" required>
                 </div>
                 <div class="form-group">
                   <label>Email</label>
-                  <input type="text" class="form-control"  name="email" placeholder="Email" value="<?php echo $customer['email'];?>">
+                  <input type="text" class="form-control"  name="email" placeholder="Email" value="<?php echo $customer['email'];?>" required>
                 </div>
                 <div class="form-group">
                   <label>Date of Birth</label>
-                  <input type="date" class="form-control"  name="dob" placeholder="Date of Birth" value="<?php echo $customer['dob'];?>">
+                  <input type="date" class="form-control"  name="dob" placeholder="Date of Birth" value="<?php echo $customer['dob'];?>" required>
                 </div>
                 <div class="form-group">
                   <label>mobile</label>
-                  <input type="text" class="form-control"  name="mobile" placeholder="Mobile" value="<?php echo $customer['mobile'];?>">
+                  <input type="text" class="form-control"  name="mobile" placeholder="Mobile" value="<?php echo $customer['mobile'];?>" required>
                 </div>
                 <div class="form-group">
                   <label>Username</label>
-                  <input type="text" class="form-control"  name="username" placeholder="Username" value="<?php echo $customer['username'];?>">
+                  <input type="text" class="form-control"  name="username" placeholder="Username" value="<?php echo $customer['username'];?>" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Save</button>
               </form>

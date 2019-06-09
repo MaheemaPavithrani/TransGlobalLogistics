@@ -51,19 +51,19 @@
               <input type="hidden" name="id" value="<?php echo $driver['id'];?>">
               <div class="form-group">
                 <label>Name</label>
-                <input type="text" class="form-control"  name="name" placeholder="Name" value="<?php echo $driver['name'];?>">
+                <input type="text" class="form-control"  name="name" placeholder="Name" value="<?php echo $driver['name'];?>" required>
               </div>
               <div class="form-group">
                 <label>License No</label>
-                <input type="text" class="form-control"  name="license_no" placeholder="License No" value="<?php echo $driver['license_no'];?>">
+                <input type="text" class="form-control"  name="license_no" placeholder="License No" value="<?php echo $driver['license_no'];?>" required>
               </div>
               <div class="form-group">
                 <label>Date of Birth</label>
-                <input type="date" class="form-control"  name="dob" placeholder="Date of Birth" value="<?php echo $driver['dob'];?>">
+                <input type="date" class="form-control"  name="dob" placeholder="Date of Birth" value="<?php echo $driver['dob'];?>" required>
               </div>
               <div class="form-group">
                 <label>NIC</label>
-                <input type="text" class="form-control"  name="nic" placeholder="NIC" value="<?php echo $driver['nic'];?>">
+                <input type="text" class="form-control"  name="nic" placeholder="NIC" value="<?php echo $driver['nic'];?>" required>
               </div>
               <button type="submit" class="btn btn-primary">Save</button>
             </form>
