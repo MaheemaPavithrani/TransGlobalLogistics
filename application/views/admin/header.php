@@ -53,9 +53,9 @@
             
                 <a href="#hire" class="list-group-item list-group-item-light" data-toggle="collapse" style="color:black"><h5><i class="fa fa-file fa-fw"></i>  HIRES</h5></a>
                 <div class="collapse" id="hire">
-                  <a href="" class="list-group-item">Ongoing</a>
-                  <a href="" class="list-group-item">Imports</a>
-                  <a href="" class="list-group-item">Exports</a>
+                  <a href="<?php echo base_url('admin/get_ongoing_hires');?>" class="list-group-item">Ongoing</a>
+                  <a href="<?php echo base_url('admin/get_imports');?>" class="list-group-item">Imports</a>
+                  <a href="<?php echo base_url('admin/get_exports');?>" class="list-group-item">Exports</a>
                 </div>
 
                 <a href="#drivers" class="list-group-item list-group-item-light" data-toggle="collapse" style="color:black" ><h5><i class="fa fa-address-card fa-fw"></i>  DRIVERS</h5></a>
@@ -68,6 +68,18 @@
                 <div class="collapse" id="vehicle">
                   <a href="" class="list-group-item">View All</a>
                   <a href="" class="list-group-item">Add Vehicle</a>
+                </div>
+
+            </ul>
+            <br><br>
+            <ul class="nav flex-column">
+      
+                <a href="<?php echo base_url('admin/get_hire_requests');?>" class="list-group-item list-group-item-light" style="color:black" ><h5><i class="fa fa-clock fa-fw"></i>  Hire Requests</h5></a>
+
+                <a href="#reports" class="list-group-item list-group-item-light" data-toggle="collapse" style="color:black" ><h5><i class="fa fa-book fa-fw fa-fw" aria-hidden="true"></i>  Reports</h5></a>
+                <div class="collapse" id="reports">
+                  <a href="" class="list-group-item">This Month</a>
+                  <a href="" class="list-group-item">Last Quarter</a>
                 </div>
 
             </ul>

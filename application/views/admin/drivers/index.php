@@ -1,7 +1,8 @@
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4 my-4">
   <h2><?php echo $title; ?></h2>
+  <br>
   <table class="table">
-      <thead>
+      <thead class="thead-dark">
         <tr>
           <th>Name</th>
           <th>License No</th>

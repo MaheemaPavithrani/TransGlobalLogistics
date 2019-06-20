@@ -50,5 +50,14 @@
             $this->db->where('id',$driver_id);
             return $this->db->update('drivers',$data);
         }
+
+        public function get_available_drivers(){
+            $query = $this->db->get_where('drivers',array(
+                'avail' => 1,
+                'on_hire' => 0
+            ));
+            
+            return $query->result_array();
+        }
     }
 ?>

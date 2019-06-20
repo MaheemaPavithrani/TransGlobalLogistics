@@ -3,6 +3,10 @@
         public function index(){
             $data['title'] = 'Administrator';
 
+            $this->load->model('Driver_model');
+
+            $data['drivers'] = $this->Driver_model->get_available_drivers();
+
             $this->load->view('admin/header');
             $this->load->view('admin/index',$data);
             $this->load->view('admin/footer');
@@ -43,19 +47,6 @@
 
             $this->load->view('admin/header');
             $this->load->view('admin/vehicles/index',$data);
-            $this->load->view('admin/footer');
-
-        }
-
-        public function get_hires(){
-            $data['title'] = 'Hires';
-
-            // $this->load->model('Hire_model');
-
-            // $data['drivers'] = $this->Hire_model->get_hires();
-
-            $this->load->view('admin/header');
-            $this->load->view('admin/hires/index',$data);
             $this->load->view('admin/footer');
 
         }
@@ -156,6 +147,61 @@
                 redirect('admin/get_customers');
             }
         }
+
+        public function get_imports(){
+            $data['title'] = 'Imports';
+
+            $this->load->model('Hire_model');
+
+            $data['imports'] = $this->Hire_model->get_imports();
+
+            $this->load->view('admin/header');
+            $this->load->view('admin/hires/imports',$data);
+            $this->load->view('admin/footer');
+
+        }
+
+        public function get_exports(){
+            $data['title'] = 'Exports';
+
+            $this->load->model('Hire_model');
+
+            $data['exports'] = $this->Hire_model->get_exports();
+
+            $this->load->view('admin/header');
+            $this->load->view('admin/hires/exports',$data);
+            $this->load->view('admin/footer');
+
+        }
+
+        public function get_ongoing_hires(){
+            $data['title'] = 'Ongoing Hires';
+
+            $this->load->model('Hire_model');
+
+            $data['imports'] = $this->Hire_model->get_ongoing_imports();
+            $data['exports'] = $this->Hire_model->get_ongoing_exports();
+
+            $this->load->view('admin/header');
+            $this->load->view('admin/hires/ongoing_hires',$data);
+            $this->load->view('admin/footer');
+
+        }
+
+        public function get_hire_requests(){
+            $data['title'] = 'New Hire Requests';
+
+            $this->load->model('Hire_model');
+
+            $data['imports'] = $this->Hire_model->get_import_requests();
+            $data['exports'] = $this->Hire_model->get_export_requests();
+
+            $this->load->view('admin/header');
+            $this->load->view('admin/hires/hire_requests',$data);
+            $this->load->view('admin/footer');
+        }
+
+        
        
     }
 
