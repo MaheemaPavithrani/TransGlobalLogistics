@@ -24,7 +24,18 @@
           <td><?php echo $export['pickup_location']; ?></td>
           <td><?php echo $export['cargo_type']; ?></td>
           <td>
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#more">More</button>
+              <button type="button" class="view-details-exports btn btn-primary" data-toggle="modal" data-target="#more"
+                      data-customer = "<?php echo $export['c_name']; ?>"
+                      data-containerType = "<?php echo $export['container_type']; ?>"
+                      data-pickupTime = "<?php echo $export['pickup_datetime']; ?>"
+                      data-pickupLocation = "<?php echo $export['pickup_location']; ?>"
+                      data-loadingPort = "<?php echo $export['loading_port']; ?>"
+                      data-cargoType = "<?php echo $export['cargo_type']; ?>"
+                      data-weight = "<?php echo $export['weight']; ?>"
+                      data-notes = "<?php echo $export['notes']; ?>"
+                      data-driver = "<?php echo $export['d_name']; ?>"
+                >More
+              </button>
           </td>
         </tr>
       <?php endforeach;?>
@@ -36,20 +47,44 @@
         <div class="modal-content">
           <div class="modal-body">
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"> <h6>Customer Name</h6><br><?php echo $export['c_name']; ?> </li>
-              <li class="list-group-item"> <h6>Container Type</h6> <br> <?php echo $export['container_type']; ?></li>
-              <li class="list-group-item"> <h6>Date</h6> <br> <?php echo $export['pickup_datetime']; ?></li>
-              <li class="list-group-item"> <h6>Container Location</h6> <br> <?php echo $export['pickup_location']; ?></li>
-              <li class="list-group-item"> <h6>Loaded Port</h6> <br> <?php echo $export['loading_port']; ?></li>
-              <li class="list-group-item"> <h6>Cargo Type</h6> <br> <?php echo $export['cargo_type']; ?></li>
-              <li class="list-group-item"> <h6>Weight</h6> <br> <?php echo $export['weight']; ?></li>
-              <li class="list-group-item"> <h6>Notes</h6> <br> <?php echo $export['notes']; ?></li>
-              <li class="list-group-item"> <h6>Driver Assigned</h6> <br> <?php echo $export['d_name']; ?></li>
+              <li class="list-group-item"> <h6>Customer Name</h6><br> <p id="customer"></li>
+              <li class="list-group-item"> <h6>Container Type</h6> <br> <p id="containerType"></p></li>
+              <li class="list-group-item"> <h6>Date</h6> <br> <p id="pickupTime"></p></li>
+              <li class="list-group-item"> <h6>Container Location</h6> <br> <p id="pickupLocation"></p></li>
+              <li class="list-group-item"> <h6>Loading Port</h6> <br> <p id="loadingPort"></p></li>
+              <li class="list-group-item"> <h6>Cargo Type</h6> <br> <p id="cargoType"></p> </li>
+              <li class="list-group-item"> <h6>Weight</h6> <br> <p id="weight"></p></li>
+              <li class="list-group-item"> <h6>Notes</h6> <br> <p id="notes"></p></li>
+              <li class="list-group-item"> <h6>Driver Assigned</h6> <br> <p id="driver"></p></li>
               <li class="list-group-item"> <h6>Lorry Number</h6> <br></li>
             </ul>
           </div>
         </div>
       </div>
   </div>
+
+  <script>
+    var btnsExp = document.querySelectorAll('.view-details-exports')
+
+    btnsExp.forEach(element => {
+
+      element.addEventListener('click', function(event) {
+          document.querySelector('.modal-body #customer').innerHTML = event.target.attributes['data-customer'].value;
+          document.querySelector('.modal-body #containerType').innerHTML = event.target.attributes['data-containerType'].value;
+          document.querySelector('.modal-body #pickupTime').innerHTML= event.target.attributes['data-pickupTime'].value;
+          document.querySelector('.modal-body #pickupLocation').innerHTML = event.target.attributes['data-pickupLocation'].value;
+          document.querySelector('.modal-body #loadingPort').innerHTML = event.target.attributes['data-loadingPort'].value;
+          document.querySelector('.modal-body #cargoType').innerHTML = event.target.attributes['data-cargoType'].value;
+          document.querySelector('.modal-body #weight').innerHTML = event.target.attributes['data-weight'].value;
+          document.querySelector('.modal-body #notes').innerHTML = event.target.attributes['data-notes'].value;
+          document.querySelector('.modal-body #driver').innerHTML = event.target.attributes['data-driver'].value;
+          // document.querySelector('#edit-form').action = (document.querySelector('.modal-body #form-main-action').value + event.target.attributes['data-id'].value)   
+          // console.log(document.querySelector('#edit-form').action);
+          // console.log('hello');
+       
+      })
+    })
+
+    </script>
 
     

@@ -23,9 +23,9 @@
      
       <ul class="navbar-nav px-3">
         <div class="row">
-          <li class="nav-item text-nowrap" style="padding-right:10px">
-            <a class="nav-link" href="#"><i class="fa fa-bell fa-fw"></i> Notifications</a>
-          </li>
+          <!-- <li class="nav-item text-nowrap" style="padding-right:10px">
+            <a class="nav-link" href="#"><i class="fa fa-bell fa-fw"></i> Notifications <span class="badge badge-light">4</span></a>
+          </li> -->
           <li class="nav-item text-nowrap" style="padding-right:10px">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i> Admin</a>
             <div class="dropdown-menu dropdown-menu-right" style="right: 0; left: auto;">
@@ -75,6 +75,7 @@
             <ul class="nav flex-column">
       
                 <a href="<?php echo base_url('admin/get_hire_requests');?>" class="list-group-item list-group-item-light" style="color:black" ><h5><i class="fa fa-clock fa-fw"></i>  Hire Requests</h5></a>
+                <a href="<?php echo base_url('admin/get_hire_requests');?>" class="list-group-item list-group-item-light" style="color:black" ><h5><i class="fa fa-bell fa-fw"></i>  Notifications <span class="badge badge-light">4</span></h5></a>
 
                 <a href="#reports" class="list-group-item list-group-item-light" data-toggle="collapse" style="color:black" ><h5><i class="fa fa-book fa-fw fa-fw" aria-hidden="true"></i>  Reports</h5></a>
                 <div class="collapse" id="reports">

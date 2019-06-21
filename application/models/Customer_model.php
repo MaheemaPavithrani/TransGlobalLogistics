@@ -20,7 +20,7 @@
         public function get_customers($customer_id = false){
             if($customer_id === false){
                 
-                $this->db->select('*');
+                $this->db->select('customers.*,users.username');
                 $this->db->from('customers');
                 $this->db->join('users','users.id = customers.user_id');
                 $this->db->where('customers.avail',1);
