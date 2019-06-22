@@ -44,6 +44,7 @@
                                 data-driver = "<?php echo $import['d_name']; ?>"
                             >More
                         </button>
+                        <a href="<?php echo base_url('admin/mark_completed/imports/'.$import['id'])?>" class="btn btn-success">Completed</a>
                     </td>
                     </tr>
                 <?php endforeach;?>
@@ -111,6 +112,7 @@
                                 data-driver = "<?php echo $export['d_name']; ?>"
                             >More
                         </button>
+                        <a href="<?php echo base_url('admin/mark_completed/exports/'.$export['id'])?>" class="btn btn-success">Completed</a>
                     </td>
                     </tr>
                 <?php endforeach;?>
@@ -133,6 +135,7 @@
                         <li class="list-group-item"> <h6>Driver Assigned</h6> <br> <p id="exdriver"></p></li>
                         <li class="list-group-item"> <h6>Lorry Number</h6> <br></li>
                         </ul>
+                        
                     </div>
                     </div>
                 </div>

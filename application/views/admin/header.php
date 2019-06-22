@@ -74,8 +74,8 @@
             <br><br>
             <ul class="nav flex-column">
       
-                <a href="<?php echo base_url('admin/get_hire_requests');?>" class="list-group-item list-group-item-light" style="color:black" ><h5><i class="fa fa-clock fa-fw"></i>  Hire Requests</h5></a>
-                <a href="<?php echo base_url('admin/get_hire_requests');?>" class="list-group-item list-group-item-light" style="color:black" ><h5><i class="fa fa-bell fa-fw"></i>  Notifications <span class="badge badge-light">4</span></h5></a>
+                <a href="<?php echo base_url('admin/get_hire_requests');?>" class="list-group-item list-group-item-light" style="color:black" ><h5><i class="fa fa-clock fa-fw"></i>  Hire Requests <span class="badge badge-light"><?php echo $this->requests;?></span></h5></a>
+                <a href="#" class="list-group-item list-group-item-light" style="color:black" ><h5><i class="fa fa-bell fa-fw"></i>  Notifications <span class="badge badge-light">1</span></h5></a>
 
                 <a href="#reports" class="list-group-item list-group-item-light" data-toggle="collapse" style="color:black" ><h5><i class="fa fa-book fa-fw fa-fw" aria-hidden="true"></i>  Reports</h5></a>
                 <div class="collapse" id="reports">

@@ -54,5 +54,14 @@
             $this->db->where('id',$customer_id);
             return $this->db->update('customers',$data);
         }
+
+        public function get_customers_this_month(){
+            $this->db->from('customers');
+            $this->db->where('MONTH(register_date)',date("m"));
+            $this->db->where('YEAR(register_date)',date("Y"));
+            $query = $this->db->get();
+
+            return $query->num_rows();
+        }
     }
 ?>

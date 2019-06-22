@@ -31,7 +31,7 @@
         <div class="col-lg-4">
           <div class="card-counter info">
             <i class="fa fa-users"></i>
-            <span class="count-numbers">35</span>
+            <span class="count-numbers"><?php echo $customers_thismonth;?></span>
             <span class="count-name">New Customers</span>
           </div>
         </div>

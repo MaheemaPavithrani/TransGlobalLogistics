@@ -58,6 +58,8 @@ class CI_Controller {
 	 */
 	private static $instance;
 
+	public $requests;
+
 	/**
 	 * Class constructor
 	 *
@@ -78,6 +80,11 @@ class CI_Controller {
 		$this->load =& load_class('Loader', 'core');
 		$this->load->initialize();
 		log_message('info', 'Controller Class Initialized');
+
+		$this->load->model('Hire_model');
+
+            
+        $this->requests = $this->Hire_model->hire_requests();
 	}
 
 	// --------------------------------------------------------------------

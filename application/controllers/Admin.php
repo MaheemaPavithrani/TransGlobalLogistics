@@ -4,8 +4,13 @@
             $data['title'] = 'Administrator';
 
             $this->load->model('Driver_model');
+            $this->load->model('Hire_model');
+            $this->load->model('Customer_model');
 
             $data['drivers'] = $this->Driver_model->get_available_drivers();
+            $data['customers_thismonth'] = $this->Customer_model->get_customers_this_month();
+            // $data['hires_thismonth'] = $this->Hire_model->get_hires_this_month();
+            // $data['ongoing_hires'] = $this->Hire_model->ongoing_hires();
 
             $this->load->view('admin/header');
             $this->load->view('admin/index',$data);
@@ -199,6 +204,43 @@
             $this->load->view('admin/header');
             $this->load->view('admin/hires/hire_requests',$data);
             $this->load->view('admin/footer');
+        }
+
+        public function view_import_request($hire_id){
+            $data['title'] = 'Import Request';
+
+            $this->load->model('Driver_model');
+            $data['drivers'] = $this->Driver_model->get_available_drivers();
+
+            $this->load->model('Hire_model');
+            $data['hire'] = $this->Hire_model->get_imports($hire_id);
+
+            $this->load->view('admin/header');
+            $this->load->view('admin/hires/assign_driver',$data);
+            $this->load->view('admin/footer');
+        }
+
+        public function view_export_request($hire_id){
+            $data['title'] = 'Export Request';
+
+            $this->load->model('Driver_model');
+            $data['drivers'] = $this->Driver_model->get_available_drivers();
+
+            $this->load->model('Hire_model');
+            $data['hire'] = $this->Hire_model->get_exports($hire_id);
+
+            $this->load->view('admin/header');
+            $this->load->view('admin/hires/assign_driver',$data);
+            $this->load->view('admin/footer');
+        }
+
+        public function mark_completed($type,$hire_id){
+            
+            $this->load->model('Hire_model');
+            $this->Hire_model->mark_completed($type,$hire_id);
+
+            redirect('admin/get_ongoing_hires');
+
         }
 
         
