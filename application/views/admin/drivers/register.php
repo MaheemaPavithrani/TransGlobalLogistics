@@ -22,6 +22,10 @@
                     <input type="text" class="form-control" name="nic" placeholder="NIC No">
                 </div>
                 <div class="form-group">
+                    <label>Mobile</label>
+                    <input type="text" class="form-control" name="mobile" placeholder="Mobile No">
+                </div>
+                <div class="form-group">
                     <label>Username</label>
                     <input type="text" class="form-control" name="username" placeholder="Username">
                 </div>

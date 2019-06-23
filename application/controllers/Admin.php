@@ -69,6 +69,7 @@
             $this->form_validation->set_rules('license_no','License No','required');
             $this->form_validation->set_rules('dob','Date of Birth','required');
             $this->form_validation->set_rules('nic','NIC no','required');
+            $this->form_validation->set_rules('mobile','Mobile no','required');
             $this->form_validation->set_rules('username','Username','required|is_unique[users.username]');
             $this->form_validation->set_rules('password','Password','required');
 
@@ -273,6 +274,17 @@
             $this->Hire_model->assign_driver($hire_type,$hire_id,$driver_id);
 
             redirect('admin/get_ongoing_hires');
+        }
+
+        public function decline_hire($hire_type,$hire_id){
+
+            $this->load->model('Hire_model');
+            $this->Hire_model->decline_hire($hire_type,$hire_id);
+
+            $this->load->model('Notification_model');
+            $this->Notification_model->decline_hire();
+
+            redirect('admin/get_hire_requests');
         }
 
         

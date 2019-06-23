@@ -6,35 +6,31 @@
     <br><br>
     <div class="bs-example">
         <?php if($title == "Import Request"): ?>
-            <?php foreach($hire as $row): ?>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"> <h6>Customer Name</h6><br><p><?php echo $row['c_name']; ?></p> </li>
-                    <li class="list-group-item"> <h6>Container Type</h6> <br><p><?php echo $row['container_type']; ?></p></li>
-                    <li class="list-group-item"> <h6>Date</h6> <br><p><?php echo $row['container_pickup_datetime']; ?></p></li>
-                    <li class="list-group-item"> <h6>Container Location</h6> <br><p><?php echo $row['container_pickup_location']; ?></p></li>
-                    <li class="list-group-item"> <h6>Loading Port</h6> <br><p><?php echo $row['loading_port']; ?></p></li>
-                    <li class="list-group-item"> <h6>Vessel Arrival Date</h6> <br><p><?php echo $row['vessel_arrival_datetime']; ?></p></li>
-                    <li class="list-group-item"> <h6>Destination</h6> <br><p><?php echo $row['destination']; ?></p></li>
-                    <li class="list-group-item"> <h6>Cargo Type</h6> <br><p><?php echo $row['cargo_type']; ?></p></li>
-                    <li class="list-group-item"> <h6>Weight</h6> <br><p><?php echo $row['weight']; ?></p></li>
-                    <li class="list-group-item"> <h6>Notes</h6> <br><p><?php echo $row['notes']; ?></p></li>
+                    <li class="list-group-item"> <h6>Customer Name</h6><br><p><?php echo $hire['c_name']; ?></p> </li>
+                    <li class="list-group-item"> <h6>Container Type</h6> <br><p><?php echo $hire['container_type']; ?></p></li>
+                    <li class="list-group-item"> <h6>Date</h6> <br><p><?php echo $hire['container_pickup_datetime']; ?></p></li>
+                    <li class="list-group-item"> <h6>Container Location</h6> <br><p><?php echo $hire['container_pickup_location']; ?></p></li>
+                    <li class="list-group-item"> <h6>Loading Port</h6> <br><p><?php echo $hire['loading_port']; ?></p></li>
+                    <li class="list-group-item"> <h6>Vessel Arrival Date</h6> <br><p><?php echo $hire['vessel_arrival_datetime']; ?></p></li>
+                    <li class="list-group-item"> <h6>Destination</h6> <br><p><?php echo $hire['destination']; ?></p></li>
+                    <li class="list-group-item"> <h6>Cargo Type</h6> <br><p><?php echo $hire['cargo_type']; ?></p></li>
+                    <li class="list-group-item"> <h6>Weight</h6> <br><p><?php echo $hire['weight']; ?></p></li>
+                    <li class="list-group-item"> <h6>Notes</h6> <br><p><?php echo $hire['notes']; ?></p></li>
                 </ul>
-                <?php $hire_id = 'imports/'.$row['id'];?>
-            <?php endforeach; ?> 
+                <?php $hire_id = 'imports/'.$hire['id'];?>
         <?php else: ?>
-            <?php foreach($hire as $row): ?>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item"> <h6>Customer Name</h6><br><p><?php echo $row['c_name']; ?></p></li>
-                    <li class="list-group-item"> <h6>Container Type</h6> <br><p><?php echo $row['container_type']; ?></p></li>
-                    <li class="list-group-item"> <h6>Date</h6> <br><p><?php echo $row['pickup_datetime']; ?></p></li>
-                    <li class="list-group-item"> <h6>Container Location</h6> <br><p><?php echo $row['pickup_location']; ?></p></li>
-                    <li class="list-group-item"> <h6>Loading Port</h6> <br><p><?php echo $row['loading_port']; ?></p></li>
-                    <li class="list-group-item"> <h6>Cargo Type</h6> <br><p><?php echo $row['cargo_type']; ?></p></li>
-                    <li class="list-group-item"> <h6>Weight</h6> <br><p><?php echo $row['weight']; ?></p></li>
-                    <li class="list-group-item"> <h6>Notes</h6> <br><p><?php echo $row['notes']; ?></p></li>
+                    <li class="list-group-item"> <h6>Customer Name</h6><br><p><?php echo $hire['c_name']; ?></p></li>
+                    <li class="list-group-item"> <h6>Container Type</h6> <br><p><?php echo $hire['container_type']; ?></p></li>
+                    <li class="list-group-item"> <h6>Date</h6> <br><p><?php echo $hire['pickup_datetime']; ?></p></li>
+                    <li class="list-group-item"> <h6>Container Location</h6> <br><p><?php echo $hire['pickup_location']; ?></p></li>
+                    <li class="list-group-item"> <h6>Loading Port</h6> <br><p><?php echo $hire['loading_port']; ?></p></li>
+                    <li class="list-group-item"> <h6>Cargo Type</h6> <br><p><?php echo $hire['cargo_type']; ?></p></li>
+                    <li class="list-group-item"> <h6>Weight</h6> <br><p><?php echo $hire['weight']; ?></p></li>
+                    <li class="list-group-item"> <h6>Notes</h6> <br><p><?php echo $hire['notes']; ?></p></li>
                 </ul>
-                <?php $hire_id = 'exports/'.$row['id'];?>
-            <?php endforeach; ?> 
+                <?php $hire_id = 'exports/'.$hire['id'];?>
         <?php endif; ?>
     </div>
     <br><br>
@@ -58,7 +54,7 @@
                 <tr>
                     <td><?php echo $driver['name']; ?></td>
                     <td><?php echo $driver['license_no']; ?></td>
-                    <td>12345</td>
+                    <td><?php echo $driver['mobile'];?></td>
                     <td>12345</td>
                     <td><a href="<?php echo base_url('admin/assign_driver/'.$hire_id.'/'.$driver['id'])?>" class="btn btn-primary">Assign</a>
                     </td>
@@ -67,10 +63,12 @@
             </tbody>
         </table>
         <br><br>
-        <div>
-            <textarea rows="4" cols="100" placeholder="Remarks"></textarea>
-        </div>
-        
-        <button class="btn btn-danger">Decline Request</button>
+        <?php echo form_open('admin/decline_hire/'.$hire_id)?>
+            <div class="form-group">
+                <textarea rows="4" cols="100" class="form-control" name="message" placeholder="Remarks" required></textarea>
+            </div>
+            <input type="hidden" value="<?php echo $hire['c_id']; ?>" name="customer">
+            <button type="submit" class="btn btn-danger">Decline Request</button>
+        </form>
     </div>
 </div>

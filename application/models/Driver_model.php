@@ -10,6 +10,7 @@
                 'license_no' => $this->input->post('license_no'),
                 'dob' => $this->input->post('dob'),
                 'nic' => $this->input->post('nic'),
+                'mobile' => $this->input->post('mobile'),
                 'avail' => 1,
                 'user_id' => $user_id
             );
@@ -44,6 +45,7 @@
                 'license_no' => $this->input->post('license_no'),
                 'dob' => $this->input->post('dob'),
                 'nic' => $this->input->post('nic'),
+                'mobile' => $this->input->post('mobile'),
             );
 
             $this->db->where('id',$driver_id);

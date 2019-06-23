@@ -19,16 +19,17 @@
                 return $query->result_array();
             }
 
-            $this->db->select('imports.*, c.name as c_name');
+            $this->db->select('imports.*, c.name as c_name, c.id as c_id');
             $this->db->from('imports');
             $this->db->order_by('container_pickup_datetime','desc');
             $this->db->join('customers as c','imports.customer_id = c.id');
             // $this->db->join('drivers as d','imports.driver_id = d.id');
             // $this->db->where('imports.completed',1);
+            $this->db->where('imports.declined',0);
             $this->db->where('imports.id',$import_id);
             $query = $this->db->get();
 
-            return $query->result_array();
+            return $query->row_array();
 
         }
 
@@ -45,17 +46,18 @@
 
                 return $query->result_array();
             }
-            $this->db->select('exports.*, c.name as c_name');
+            $this->db->select('exports.*, c.name as c_name, c.id as c_id');
             $this->db->from('exports');
             $this->db->order_by('pickup_datetime','desc');
             $this->db->join('customers as c','exports.customer_id = c.id');
             // $this->db->join('drivers as d','exports.driver_id = d.id');
             // $this->db->where('exports.completed',1);
+            $this->db->where('exports.declined',0);
             $this->db->where('exports.id',$export_id);
             $query = $this->db->get();                                    
            
 
-            return $query->result_array();
+            return $query->row_array();
 
         }
 
@@ -125,6 +127,7 @@
             $this->db->join('customers as c','imports.customer_id = c.id');
             $this->db->where('imports.completed',0);
             $this->db->where('imports.driver_id', null);
+            $this->db->where('imports.declined',0);
             $query = $this->db->get();
 
             return $query->result_array();
@@ -137,6 +140,7 @@
             $this->db->join('customers as c','exports.customer_id = c.id');
             $this->db->where('exports.completed',0);
             $this->db->where('exports.driver_id', null);
+            $this->db->where('exports.declined',0);
             $query = $this->db->get();                                    
         
             return $query->result_array();
@@ -156,12 +160,14 @@
             $this->db->from('imports');
             $this->db->where('completed',0);
             $this->db->where('driver_id', null);
+            $this->db->where('declined',0);
             $query = $this->db->get();
             $imports = $query->num_rows();
 
             $this->db->from('exports');
             $this->db->where('completed',0);
             $this->db->where('driver_id', null);
+            $this->db->where('declined',0);
             $query = $this->db->get();
             $exports = $query->num_rows();
 
@@ -229,6 +235,16 @@
 
             $this->db->where('id',$hire_id);
             return $this->db->update($hire_type,$data);
+        }
+
+        public function decline_hire($hire_type,$hire_id){
+
+            $data = array(
+                'declined' => 1
+            );
+
+            $this->db->where('id',$hire_id);
+            $this->db->update($hire_type,$data);
         }
     }
 ?>

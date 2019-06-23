@@ -8,6 +8,7 @@
           <th>License No</th>
           <th>DOB</th>
           <th>NIC</th>
+          <th>Mobile</th>
           <th></th>
         </tr>
       </thead>
@@ -18,6 +19,7 @@
           <td><?php echo $driver['license_no']; ?></td>
           <td><?php echo $driver['dob']; ?></td>
           <td><?php echo $driver['nic']; ?></td>
+          <td><?php echo $driver['mobile']; ?></td>
           <!-- <td><?php echo $driver['username']; ?></td> -->
           <td><button type="button" class="delete btn btn-danger"  data-toggle="modal" data-id="<?php echo $driver['id']; ?>" data-target="#delete">Delete</button>
               <button type="button" class="edit-details btn btn-primary" data-toggle="modal" data-target="#edit" data-id="<?php echo $driver['id']; ?>"
@@ -25,6 +27,7 @@
                       data-license="<?php echo $driver['license_no']; ?>"
                       data-dob="<?php echo $driver['dob']; ?>"
                       data-nic="<?php echo $driver['nic']; ?>"
+                      data-mobile="<?php echo $driver['mobile']; ?>"
                       >Edit
               </button>
           </td>
@@ -73,6 +76,10 @@
                 <label>NIC</label>
                 <input type="text" class="form-control" id="nic" name="nic" placeholder="NIC" value="" required>
               </div>
+              <div class="form-group">
+                <label>Mobile No.</label>
+                <input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile No." value="" required>
+              </div>
               <button type="submit" class="btn btn-primary">Save</button>
             </form>
           </div>
@@ -91,6 +98,7 @@
         document.querySelector('.modal-body #license').value = event.target.attributes['data-license'].value;
         document.querySelector('.modal-body #dob').value = event.target.attributes['data-dob'].value;
         document.querySelector('.modal-body #nic').value = event.target.attributes['data-nic'].value;
+        document.querySelector('.modal-body #mobile').value = event.target.attributes['data-mobile'].value;
         document.querySelector('#edit-form').action = (document.querySelector('.modal-body #form-main-action').value + event.target.attributes['data-id'].value)   
         // console.log(document.querySelector('#edit-form').action);
            
