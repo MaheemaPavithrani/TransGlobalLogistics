@@ -2,7 +2,7 @@
 <h2><?php echo $title; ?></h2>
 <br>
     <?php if(!$imports && !$exports):?>
-        <h5 class="text-center">No Ongoing Hires</h5>
+        <h5 class="text-center">No Past Hires</h5>
     <?php else: ?>
         <?php if($imports): ?>
             <h2>Imports</h2>
@@ -11,7 +11,6 @@
                 <thead class="thead-dark">
                     <tr>
                     <th>Customer</th>
-                    <th>Assigned Driver</th>
                     <!-- <th>Vehicle</th> -->
                     <th>Container</th>
                     <th>Date</th>
@@ -24,7 +23,6 @@
                 <?php foreach($imports as $import): ?>
                     <tr>
                     <td><?php echo $import['c_name']; ?></td>
-                    <td><?php echo $import['d_name']; ?></td>
                     <td><?php echo $import['container_type']; ?></td>
                     <td><?php echo $import['container_pickup_datetime']; ?></td>
                     <td><?php echo $import['cargo_type']; ?></td>
@@ -41,10 +39,8 @@
                                 data-cargoType = "<?php echo $import['cargo_type']; ?>"
                                 data-weight = "<?php echo $import['weight']; ?>"
                                 data-notes = "<?php echo $import['notes']; ?>"
-                                data-driver = "<?php echo $import['d_name']; ?>"
                             >More
                         </button>
-                        <a href="<?php echo base_url('admin/mark_completed/imports/'.$import['id'].'/'.$import['driver_id'])?>" class="btn btn-success">Completed</a>
                     </td>
                     </tr>
                 <?php endforeach;?>
@@ -60,13 +56,12 @@
                         <li class="list-group-item"> <h6>Container Type</h6> <br> <p id="containerType"></p></li>
                         <li class="list-group-item"> <h6>Date</h6> <br> <p id="containerPickupTime"></p></li>
                         <li class="list-group-item"> <h6>Container Location</h6> <br><p id="containerPickupLocation"></p></li>
-                        <li class="list-group-item"> <h6>Loading Port</h6> <br><p id="loadingPort"></p></li>
-                        <li class="list-group-item"> <h6>Vessel Arrival Date</h6> <br><p id="arrivalDate"></p></li>
+                        <li class="list-group-item"> <h6>Loaded Port</h6> <br><p id="loadingPort"></p></li>
+                        <li class="list-group-item"> <h6>Vessel Arrived Date</h6> <br><p id="arrivalDate"></p></li>
                         <li class="list-group-item"> <h6>Destination</h6> <br><p id="destination"></p></li>
                         <li class="list-group-item"> <h6>Cargo Type</h6> <br> <p id="cargoType"></p></li>
                         <li class="list-group-item"> <h6>Weight</h6> <br><p id="weight"></p></li>
                         <li class="list-group-item"> <h6>Notes</h6> <br><p id="notes"></li>
-                        <li class="list-group-item"> <h6>Driver Assigned</h6> <br> <p id="driver"></p></li>
                         <li class="list-group-item"> <h6>Lorry Number</h6> <br></li>
                         </ul>
                     </div>
@@ -81,7 +76,6 @@
                 <thead class="thead-dark">
                     <tr>
                     <th>Customer</th>
-                    <th>Assigned Driver</th>
                     <!-- <th>Vehicle</th> -->
                     <th>Container</th>
                     <th>Date</th>
@@ -94,7 +88,6 @@
                 <?php foreach($exports as $export): ?>
                     <tr>
                     <td><?php echo $export['c_name']; ?></td>
-                    <td><?php echo $export['d_name']; ?></td>
                     <td><?php echo $export['container_type']; ?></td>
                     <td><?php echo $export['pickup_datetime']; ?></td>
                     <td><?php echo $export['pickup_location']; ?></td>
@@ -109,10 +102,8 @@
                                 data-cargoType = "<?php echo $export['cargo_type']; ?>"
                                 data-weight = "<?php echo $export['weight']; ?>"
                                 data-notes = "<?php echo $export['notes']; ?>"
-                                data-driver = "<?php echo $export['d_name']; ?>"
                             >More
                         </button>
-                        <a href="<?php echo base_url('admin/mark_completed/exports/'.$export['id'].'/'.$export['driver_id'])?>" class="btn btn-success">Completed</a>
                     </td>
                     </tr>
                 <?php endforeach;?>
@@ -128,11 +119,10 @@
                         <li class="list-group-item"> <h6>Container Type</h6> <br> <p id="excontainerType"></p></li>
                         <li class="list-group-item"> <h6>Date</h6> <br> <p id="expickupTime"></p></li>
                         <li class="list-group-item"> <h6>Container Location</h6> <br> <p id="expickupLocation"></p></li>
-                        <li class="list-group-item"> <h6>Loading Port</h6> <br> <p id="exloadingPort"></p></li>
+                        <li class="list-group-item"> <h6>Loaded Port</h6> <br> <p id="exloadingPort"></p></li>
                         <li class="list-group-item"> <h6>Cargo Type</h6> <br> <p id="excargoType"></p> </li>
                         <li class="list-group-item"> <h6>Weight</h6> <br> <p id="exweight"></p></li>
                         <li class="list-group-item"> <h6>Notes</h6> <br> <p id="exnotes"></p></li>
-                        <li class="list-group-item"> <h6>Driver Assigned</h6> <br> <p id="exdriver"></p></li>
                         <li class="list-group-item"> <h6>Lorry Number</h6> <br></li>
                         </ul>
                         
@@ -160,11 +150,7 @@
         document.querySelector('.modal-body #destination').innerHTML = event.target.attributes['data-destination'].value;
         document.querySelector('.modal-body #cargoType').innerHTML = event.target.attributes['data-cargoType'].value;
         document.querySelector('.modal-body #weight').innerHTML = event.target.attributes['data-weight'].value;
-        document.querySelector('.modal-body #notes').innerHTML = event.target.attributes['data-notes'].value;
-        document.querySelector('.modal-body #driver').innerHTML = event.target.attributes['data-driver'].value;
-        // document.querySelector('#edit-form').action = (document.querySelector('.modal-body #form-main-action').value + event.target.attributes['data-id'].value)   
-        // console.log(document.querySelector('#edit-form').action);
-           
+        document.querySelector('.modal-body #notes').innerHTML = event.target.attributes['data-notes'].value;    
       })
     })
 
@@ -181,11 +167,6 @@
         document.querySelector('.modal-body #excargoType').innerHTML = event.target.attributes['data-cargoType'].value;
         document.querySelector('.modal-body #exweight').innerHTML = event.target.attributes['data-weight'].value;
         document.querySelector('.modal-body #exnotes').innerHTML = event.target.attributes['data-notes'].value;
-        document.querySelector('.modal-body #exdriver').innerHTML = event.target.attributes['data-driver'].value;
-        // document.querySelector('#edit-form').action = (document.querySelector('.modal-body #form-main-action').value + event.target.attributes['data-id'].value)   
-        // console.log(document.querySelector('#edit-form').action);
-        // console.log('hello');
-           
       })
     })
 

@@ -26,8 +26,9 @@
                     <td><?php echo $import['container_pickup_datetime']; ?></td>
                     <td><?php echo $import['cargo_type']; ?></td>
                     <td><?php echo $import['destination']; ?></td>
+                    <?php $d = date('Y-m-d', strtotime($import['container_pickup_datetime'])); ?>
                     <td>
-                        <a class="btn btn-primary" href="<?php echo base_url('admin/view_import_request/'.$import['id']);?>">View</a>
+                        <a class="btn btn-primary" href="<?php echo base_url('admin/view_import_request/'.$import['id'].'/'.$d);?>">View</a>
                     </td>
                     </tr>
                 <?php endforeach;?>
@@ -56,8 +57,9 @@
                     <td><?php echo $export['pickup_datetime']; ?></td>
                     <td><?php echo $export['pickup_location']; ?></td>
                     <td><?php echo $export['cargo_type']; ?></td>
+                    <?php $d = date('Y-m-d', strtotime($export['pickup_datetime'])); ?>
                     <td>
-                        <a class="btn btn-primary" href="<?php echo base_url('admin/view_export_request/'.$export['id']);?>">View</a>
+                        <a class="btn btn-primary" href="<?php echo base_url('admin/view_export_request/'.$export['id'].'/'.$d);?>">View</a>
                     </td>
                     </tr>
                 <?php endforeach;?>

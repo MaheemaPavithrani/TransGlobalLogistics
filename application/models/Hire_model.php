@@ -167,5 +167,68 @@
 
             return $imports+$exports;
         }
+
+        public function get_hires_this_month(){
+            $this->db->from('imports');
+            $this->db->where('completed',1);
+            $this->db->where('MONTH(container_pickup_datetime)',date("m"));
+            $this->db->where('YEAR(container_pickup_datetime)',date("Y"));
+            $query = $this->db->get();
+            $imports = $query->num_rows();
+
+            $this->db->from('exports');
+            $this->db->where('completed',1);
+            $this->db->where('MONTH(pickup_datetime)',date("m"));
+            $this->db->where('YEAR(pickup_datetime)',date("Y"));
+            $query = $this->db->get();
+            $exports = $query->num_rows();
+
+            return $imports+$exports;
+        }
+
+        public function ongoing_hires(){
+            $this->db->from('imports');
+            $this->db->where('completed',0);
+            $this->db->where('driver_id !=',null);
+            $this->db->where('MONTH(container_pickup_datetime)',date("m"));
+            $this->db->where('YEAR(container_pickup_datetime)',date("Y"));
+            $query = $this->db->get();
+            $imports = $query->num_rows();
+
+            $this->db->from('exports');
+            $this->db->where('completed',0);
+            $this->db->where('driver_id !=',null);
+            $this->db->where('MONTH(pickup_datetime)',date("m"));
+            $this->db->where('YEAR(pickup_datetime)',date("Y"));
+            $query = $this->db->get();
+            $exports = $query->num_rows();
+
+            return $imports+$exports;
+        }
+
+        public function view_past_hires($table,$driver_id){
+
+            $this->db->select($table.'.*, c.name as c_name, d.name as d_name');
+            $this->db->from($table);
+            $this->db->order_by('date','desc');
+            $this->db->join('customers as c',$table.'.customer_id = c.id');
+            $this->db->join('drivers as d',$table.'.driver_id = d.id');
+            $this->db->where($table.'.completed',1);
+            $this->db->where($table.'.driver_id', $driver_id);
+            $query = $this->db->get(); 
+            
+            return $query->result_array();
+            
+        }
+
+        public function assign_driver($hire_type,$hire_id,$driver_id){
+
+            $data = array(
+                'driver_id' => $driver_id
+            );
+
+            $this->db->where('id',$hire_id);
+            return $this->db->update($hire_type,$data);
+        }
     }
 ?>

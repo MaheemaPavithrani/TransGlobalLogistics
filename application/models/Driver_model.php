@@ -27,7 +27,6 @@
                 'id' => $driver_id
             ));
             return $query->result_array();
-
             
         }
 
@@ -51,13 +50,68 @@
             return $this->db->update('drivers',$data);
         }
 
-        public function get_available_drivers(){
-            $query = $this->db->get_where('drivers',array(
-                'avail' => 1,
-                'on_hire' => 0
-            ));
-            
+        public function get_available_drivers($date = false){
+
+            if($date == false){
+                $query = $this->db->get_where('drivers',array(
+                    'avail' => 1,
+                    'on_hire' => 0
+                ));
+                
+                return $query->result_array();
+            }
+            $this->db->select('driver_id');
+            $this->db->from('exports');
+            $this->db->where('CAST(pickup_datetime as DATE)=',$date);
+            $this->db->where('completed',0);
+            $this->db->where('driver_id !=',NULL);
+            $exports = $this->db->get();
+
+            $this->db->select('imports.driver_id');
+            $this->db->from('imports');
+            $this->db->where('CAST(imports.container_pickup_datetime as DATE)=',$date);
+            $this->db->where('imports.completed',0);
+            $this->db->where('driver_id !=',NULL);
+            $imports = $this->db->get();
+
+            $array = array(0);
+
+            foreach($exports->result_array() as $row)
+            {
+                $array[] = $row['driver_id']; 
+            }
+
+
+            foreach($imports->result_array() as $row)
+            {
+                $array[] = $row['driver_id']; 
+            }
+
+            $this->db->select('*');
+            $this->db->from('drivers');
+            $this->db->where_not_in('id',$array);
+            $query = $this->db->get();
+
             return $query->result_array();
+        }
+        
+        public function mark_completed($driver_id){
+            $data = array(
+                'on_hire' => 0 
+            );
+
+            $this->db->where('id',$driver_id);
+            return $this->db->update('drivers',$data);
+        }
+
+        public function assign_driver($driver_id){
+
+            $data = array(
+                'on_hire' => 1
+            );
+
+            $this->db->where('id',$driver_id);
+            return $this->db->update('drivers',$data);
         }
     }
 ?>

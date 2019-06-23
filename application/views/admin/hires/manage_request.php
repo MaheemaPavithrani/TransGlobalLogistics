@@ -19,6 +19,7 @@
                     <li class="list-group-item"> <h6>Weight</h6> <br><p><?php echo $row['weight']; ?></p></li>
                     <li class="list-group-item"> <h6>Notes</h6> <br><p><?php echo $row['notes']; ?></p></li>
                 </ul>
+                <?php $hire_id = 'imports/'.$row['id'];?>
             <?php endforeach; ?> 
         <?php else: ?>
             <?php foreach($hire as $row): ?>
@@ -32,6 +33,7 @@
                     <li class="list-group-item"> <h6>Weight</h6> <br><p><?php echo $row['weight']; ?></p></li>
                     <li class="list-group-item"> <h6>Notes</h6> <br><p><?php echo $row['notes']; ?></p></li>
                 </ul>
+                <?php $hire_id = 'exports/'.$row['id'];?>
             <?php endforeach; ?> 
         <?php endif; ?>
     </div>
@@ -58,7 +60,7 @@
                     <td><?php echo $driver['license_no']; ?></td>
                     <td>12345</td>
                     <td>12345</td>
-                    <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#delete">Assign</button>
+                    <td><a href="<?php echo base_url('admin/assign_driver/'.$hire_id.'/'.$driver['id'])?>" class="btn btn-primary">Assign</a>
                     </td>
                 </tr>
                 <?php endforeach;?>          
@@ -66,7 +68,7 @@
         </table>
         <br><br>
         <div>
-            <textarea rows="4" cols="100">Remarks</textarea>
+            <textarea rows="4" cols="100" placeholder="Remarks"></textarea>
         </div>
         
         <button class="btn btn-danger">Decline Request</button>

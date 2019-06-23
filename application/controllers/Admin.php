@@ -9,11 +9,17 @@
 
             $data['drivers'] = $this->Driver_model->get_available_drivers();
             $data['customers_thismonth'] = $this->Customer_model->get_customers_this_month();
-            // $data['hires_thismonth'] = $this->Hire_model->get_hires_this_month();
-            // $data['ongoing_hires'] = $this->Hire_model->ongoing_hires();
+            $data['hires_thismonth'] = $this->Hire_model->get_hires_this_month();
+            $data['ongoing_hires'] = $this->Hire_model->ongoing_hires();
 
             $this->load->view('admin/header');
             $this->load->view('admin/index',$data);
+            $this->load->view('admin/footer');
+        }
+
+        public function view_profile(){
+            $this->load->view('admin/header');
+            $this->load->view('admin/profile');
             $this->load->view('admin/footer');
         }
 
@@ -206,41 +212,67 @@
             $this->load->view('admin/footer');
         }
 
-        public function view_import_request($hire_id){
+        public function view_import_request($hire_id,$date){
             $data['title'] = 'Import Request';
 
             $this->load->model('Driver_model');
-            $data['drivers'] = $this->Driver_model->get_available_drivers();
+            $data['drivers'] = $this->Driver_model->get_available_drivers($date);
 
             $this->load->model('Hire_model');
             $data['hire'] = $this->Hire_model->get_imports($hire_id);
 
             $this->load->view('admin/header');
-            $this->load->view('admin/hires/assign_driver',$data);
+            $this->load->view('admin/hires/manage_request',$data);
             $this->load->view('admin/footer');
         }
 
-        public function view_export_request($hire_id){
+        public function view_export_request($hire_id,$date){
             $data['title'] = 'Export Request';
 
             $this->load->model('Driver_model');
-            $data['drivers'] = $this->Driver_model->get_available_drivers();
+            $data['drivers'] = $this->Driver_model->get_available_drivers($date);
 
             $this->load->model('Hire_model');
             $data['hire'] = $this->Hire_model->get_exports($hire_id);
 
             $this->load->view('admin/header');
-            $this->load->view('admin/hires/assign_driver',$data);
+            $this->load->view('admin/hires/manage_request',$data);
             $this->load->view('admin/footer');
         }
 
-        public function mark_completed($type,$hire_id){
+        public function mark_completed($type,$hire_id,$driver_id){
             
             $this->load->model('Hire_model');
             $this->Hire_model->mark_completed($type,$hire_id);
 
+            $this->load->model('Driver_model');
+            $this->Driver_model->mark_completed($driver_id);
+
             redirect('admin/get_ongoing_hires');
 
+        }
+
+        public function view_past_hires($driver_id){
+
+            $this->load->model('Hire_model');
+            $data['title'] = 'Past Hires';
+            $data['imports'] = $this->Hire_model->view_past_hires('imports',$driver_id);
+            $data['exports'] = $this->Hire_model->view_past_hires('exports',$driver_id);
+
+            $this->load->view('admin/header');
+            $this->load->view('admin/drivers/past_hires',$data);
+            $this->load->view('admin/footer');
+        }
+
+        public function assign_driver($hire_type,$hire_id,$driver_id){
+
+            $this->load->model('Driver_model');
+            $this->load->model('Hire_model');
+
+            $this->Driver_model->assign_driver($driver_id);
+            $this->Hire_model->assign_driver($hire_type,$hire_id,$driver_id);
+
+            redirect('admin/get_ongoing_hires');
         }
 
         

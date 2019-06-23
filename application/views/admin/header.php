@@ -26,10 +26,10 @@
           <!-- <li class="nav-item text-nowrap" style="padding-right:10px">
             <a class="nav-link" href="#"><i class="fa fa-bell fa-fw"></i> Notifications <span class="badge badge-light">4</span></a>
           </li> -->
-          <li class="nav-item text-nowrap" style="padding-right:10px">
+          <li class="nav-item text-nowrap" style="padding-right:20px">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i> Admin</a>
-            <div class="dropdown-menu dropdown-menu-right" style="right: 0; left: auto;">
-                <a class="dropdown-item" href="">Profile</a>
+            <div class="dropdown-menu dropdown-menu-right" style="right: 0px; left: auto;">
+                <a class="dropdown-item" href="<?php echo base_url('admin/view_profile');?>">Profile</a>
                 <a class="dropdown-item" href="">Logout</a>
             </div>
           </li>
