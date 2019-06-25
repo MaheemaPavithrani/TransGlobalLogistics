@@ -77,46 +77,13 @@
                 <a href="<?php echo base_url('admin/get_hire_requests');?>" class="list-group-item list-group-item-light" style="color:black" ><h5><i class="fa fa-clock fa-fw"></i>  Hire Requests <span class="badge badge-light"><?php echo $this->requests;?></span></h5></a>
                 <a href="#" class="list-group-item list-group-item-light" style="color:black" ><h5><i class="fa fa-bell fa-fw"></i>  Notifications <span class="badge badge-light">1</span></h5></a>
 
-                <a href="#reports" class="list-group-item list-group-item-light" data-toggle="collapse" style="color:black" ><h5><i class="fa fa-book fa-fw fa-fw" aria-hidden="true"></i>  Reports</h5></a>
+                <!-- <a href="#reports" class="list-group-item list-group-item-light" data-toggle="collapse" style="color:black" ><h5><i class="fa fa-book fa-fw fa-fw" aria-hidden="true"></i>  Reports</h5></a>
                 <div class="collapse" id="reports">
                   <a href="" class="list-group-item">This Month</a>
                   <a href="" class="list-group-item">Last Quarter</a>
-                </div>
+                </div> -->
 
             </ul>
-
-            <!-- <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-              <span>Saved reports</span>
-              <a class="d-flex align-items-center text-muted" href="#">
-                <span data-feather="plus-circle"></span>
-              </a>
-            </h6>
-            <ul class="nav flex-column mb-2">
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Current month
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Last quarter
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Social engagement
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">
-                  <span data-feather="file-text"></span>
-                  Year-end sale
-                </a>
-              </li>
-            </ul> -->
           </div>
         </nav>
 

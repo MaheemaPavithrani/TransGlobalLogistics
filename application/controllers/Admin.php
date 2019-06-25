@@ -3,9 +3,9 @@
         public function index(){
             $data['title'] = 'Administrator';
 
-            $this->load->model('Driver_model');
-            $this->load->model('Hire_model');
-            $this->load->model('Customer_model');
+            $this->load->model('admin/Driver_model');
+            $this->load->model('admin/Hire_model');
+            $this->load->model('admin/Customer_model');
 
             $data['drivers'] = $this->Driver_model->get_available_drivers();
             $data['customers_thismonth'] = $this->Customer_model->get_customers_this_month();
@@ -26,7 +26,7 @@
         public function get_drivers(){
             $data['title'] = 'Drivers';
 
-            $this->load->model('Driver_model');
+            $this->load->model('admin/Driver_model');
 
             $data['drivers'] = $this->Driver_model->get_drivers();
 
@@ -39,7 +39,7 @@
         public function get_customers(){
             $data['title'] = 'Customers';
 
-            $this->load->model('Customer_model');
+            $this->load->model('admin/Customer_model');
 
             $data['customers'] = $this->Customer_model->get_customers();
 
@@ -82,10 +82,10 @@
 
                 $enc_password = md5($this->input->post('password'));
 
-                $this->load->model('user_model');
+                $this->load->model('admin/user_model');
                 $user_id = $this->user_model->register($enc_password);
 
-                $this->load->model('driver_model');
+                $this->load->model('admin/driver_model');
                 $this->driver_model->register_driver($user_id);
 
                 redirect('admin/get_drivers');
@@ -94,7 +94,7 @@
 
         public function remove_driver($driver_id){
 
-            $this->load->model('Driver_model');
+            $this->load->model('admin/Driver_model');
 
             $this->Driver_model->remove_driver($driver_id);
 
@@ -105,7 +105,7 @@
 
         public function update_driver($driver_id){
             
-            $this->load->model('Driver_model');
+            $this->load->model('admin/Driver_model');
 
             $this->Driver_model->update_driver($driver_id);
 
@@ -114,7 +114,7 @@
 
         public function remove_customer($customer_id){
 
-            $this->load->model('Customer_model');
+            $this->load->model('admin/Customer_model');
 
             $this->Customer_model->remove_customer($customer_id);
 
@@ -125,7 +125,7 @@
 
         public function update_customer($customer_id){
             
-            $this->load->model('Customer_model');
+            $this->load->model('admin/Customer_model');
 
             $this->Customer_model->update_customer($customer_id);
 
@@ -150,10 +150,10 @@
             }else{
                 $enc_password = md5($this->input->post('password'));
 
-                $this->load->model('user_model');
+                $this->load->model('admin/user_model');
                 $user_id = $this->user_model->register($enc_password);
 
-                $this->load->model('customer_model');
+                $this->load->model('admin/customer_model');
                 $this->customer_model->register_customer($user_id);
 
                 redirect('admin/get_customers');
@@ -163,7 +163,7 @@
         public function get_imports(){
             $data['title'] = 'Imports';
 
-            $this->load->model('Hire_model');
+            $this->load->model('admin/Hire_model');
 
             $data['imports'] = $this->Hire_model->get_imports();
 
@@ -176,7 +176,7 @@
         public function get_exports(){
             $data['title'] = 'Exports';
 
-            $this->load->model('Hire_model');
+            $this->load->model('admin/Hire_model');
 
             $data['exports'] = $this->Hire_model->get_exports();
 
@@ -189,7 +189,7 @@
         public function get_ongoing_hires(){
             $data['title'] = 'Ongoing Hires';
 
-            $this->load->model('Hire_model');
+            $this->load->model('admin/Hire_model');
 
             $data['imports'] = $this->Hire_model->get_ongoing_imports();
             $data['exports'] = $this->Hire_model->get_ongoing_exports();
@@ -203,7 +203,7 @@
         public function get_hire_requests(){
             $data['title'] = 'New Hire Requests';
 
-            $this->load->model('Hire_model');
+            $this->load->model('admin/Hire_model');
 
             $data['imports'] = $this->Hire_model->get_import_requests();
             $data['exports'] = $this->Hire_model->get_export_requests();
@@ -216,10 +216,10 @@
         public function view_import_request($hire_id,$date){
             $data['title'] = 'Import Request';
 
-            $this->load->model('Driver_model');
+            $this->load->model('admin/Driver_model');
             $data['drivers'] = $this->Driver_model->get_available_drivers($date);
 
-            $this->load->model('Hire_model');
+            $this->load->model('admin/Hire_model');
             $data['hire'] = $this->Hire_model->get_imports($hire_id);
 
             $this->load->view('admin/header');
@@ -230,10 +230,10 @@
         public function view_export_request($hire_id,$date){
             $data['title'] = 'Export Request';
 
-            $this->load->model('Driver_model');
+            $this->load->model('admin/Driver_model');
             $data['drivers'] = $this->Driver_model->get_available_drivers($date);
 
-            $this->load->model('Hire_model');
+            $this->load->model('admin/Hire_model');
             $data['hire'] = $this->Hire_model->get_exports($hire_id);
 
             $this->load->view('admin/header');
@@ -243,10 +243,10 @@
 
         public function mark_completed($type,$hire_id,$driver_id){
             
-            $this->load->model('Hire_model');
+            $this->load->model('admin/Hire_model');
             $this->Hire_model->mark_completed($type,$hire_id);
 
-            $this->load->model('Driver_model');
+            $this->load->model('admin/Driver_model');
             $this->Driver_model->mark_completed($driver_id);
 
             redirect('admin/get_ongoing_hires');
@@ -255,7 +255,7 @@
 
         public function view_past_hires($driver_id){
 
-            $this->load->model('Hire_model');
+            $this->load->model('admin/Hire_model');
             $data['title'] = 'Past Hires';
             $data['imports'] = $this->Hire_model->view_past_hires('imports',$driver_id);
             $data['exports'] = $this->Hire_model->view_past_hires('exports',$driver_id);
@@ -267,8 +267,8 @@
 
         public function assign_driver($hire_type,$hire_id,$driver_id){
 
-            $this->load->model('Driver_model');
-            $this->load->model('Hire_model');
+            $this->load->model('admin/Driver_model');
+            $this->load->model('admin/Hire_model');
 
             $this->Driver_model->assign_driver($driver_id);
             $this->Hire_model->assign_driver($hire_type,$hire_id,$driver_id);
@@ -278,10 +278,10 @@
 
         public function decline_hire($hire_type,$hire_id){
 
-            $this->load->model('Hire_model');
+            $this->load->model('admin/Hire_model');
             $this->Hire_model->decline_hire($hire_type,$hire_id);
 
-            $this->load->model('Notification_model');
+            $this->load->model('admin/Notification_model');
             $this->Notification_model->decline_hire();
 
             redirect('admin/get_hire_requests');

@@ -59,6 +59,7 @@ class CI_Controller {
 	private static $instance;
 
 	public $requests;
+	public $notifications;
 
 	/**
 	 * Class constructor
@@ -81,10 +82,12 @@ class CI_Controller {
 		$this->load->initialize();
 		log_message('info', 'Controller Class Initialized');
 
-		$this->load->model('Hire_model');
+		$this->load->model('admin/Hire_model');
+		$this->load->model('admin/Notification_model');
 
             
-        $this->requests = $this->Hire_model->hire_requests();
+		$this->requests = $this->Hire_model->hire_requests();
+		// $this->notifications = $this->Notification_model->get_notifications();
 	}
 
 	// --------------------------------------------------------------------
