@@ -56,7 +56,7 @@
                 <tr>
                   <td><?php echo $driver['name']; ?></td>
                   <td><?php echo $driver['license_no']; ?></td>
-                  <td>12345</td>
+                  <td><?php echo $driver['lorry_no']; ?></td>
                   <td>
                       <a class="btn btn-primary" href="<?php echo base_url('admin/view_past_hires/'.$driver['id']);?>">View Past Hires</a>
                   </td>

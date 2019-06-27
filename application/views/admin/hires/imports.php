@@ -6,7 +6,7 @@
         <tr>
           <th>Customer</th>
           <th>Assigned Driver</th>
-          <!-- <th>Vehicle</th> -->
+          <th>Vehicle</th>
           <th>Container</th>
           <th>Date Completed</th>
           <th>Container Location</th>
@@ -20,6 +20,7 @@
         <tr>
           <td><?php echo $import['c_name']; ?></td>
           <td><?php echo $import['d_name']; ?></td>
+          <td><?php echo $import['v_no']; ?></td>
           <td><?php echo $import['container_type']; ?></td>
           <td><?php echo $import['container_pickup_datetime']; ?></td>
           <td><?php echo $import['container_pickup_location']; ?></td>
@@ -38,6 +39,7 @@
                       data-weight = "<?php echo $import['weight']; ?>"
                       data-notes = "<?php echo $import['notes']; ?>"
                       data-driver = "<?php echo $import['d_name']; ?>"
+                      data-lorry = "<?php echo $import['v_no']; ?>"
                 >More
               </button>
           </td>
@@ -62,7 +64,7 @@
               <li class="list-group-item"> <h6>Weight</h6> <br><p id="weight"></p></li>
               <li class="list-group-item"> <h6>Notes</h6> <br><p id="notes"></li>
               <li class="list-group-item"> <h6>Driver Assigned</h6> <br> <p id="driver"></p></li>
-              <li class="list-group-item"> <h6>Lorry Number</h6> <br></li>
+              <li class="list-group-item"> <h6>Lorry Number</h6> <br><p id="lorry"></p></li>
             </ul>
           </div>
         </div>
@@ -88,9 +90,7 @@
         document.querySelector('.modal-body #weight').innerHTML = event.target.attributes['data-weight'].value;
         document.querySelector('.modal-body #notes').innerHTML = event.target.attributes['data-notes'].value;
         document.querySelector('.modal-body #driver').innerHTML = event.target.attributes['data-driver'].value;
-        // document.querySelector('#edit-form').action = (document.querySelector('.modal-body #form-main-action').value + event.target.attributes['data-id'].value)   
-        // console.log(document.querySelector('#edit-form').action);
-           
+        document.querySelector('.modal-body #lorry').innerHTML = event.target.attributes['data-lorry'].value;
       })
     })
 

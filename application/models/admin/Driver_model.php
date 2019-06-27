@@ -55,11 +55,13 @@
         public function get_available_drivers($date = false){
 
             if($date == false){
-                $query = $this->db->get_where('drivers',array(
-                    'avail' => 1,
-                    'on_hire' => 0
-                ));
-                
+                $this->db->select('drivers.*, vehicles.lorry_no');
+                $this->db->from('drivers');
+                $this->db->join('vehicles','vehicles.driver_id = drivers.id');
+                $this->db->where('drivers.avail',1);
+                $this->db->where('drivers.on_hire',0);
+                $query = $this->db->get();
+
                 return $query->result_array();
             }
             $this->db->select('driver_id');
@@ -89,9 +91,10 @@
                 $array[] = $row['driver_id']; 
             }
 
-            $this->db->select('*');
+            $this->db->select('drivers.*,vehicles.lorry_no');
             $this->db->from('drivers');
-            $this->db->where_not_in('id',$array);
+            $this->db->join('vehicles','vehicles.driver_id = drivers.id');
+            $this->db->where_not_in('drivers.id',$array);
             $query = $this->db->get();
 
             return $query->result_array();

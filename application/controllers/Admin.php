@@ -52,14 +52,43 @@
         public function get_vehicles(){
             $data['title'] = 'Vehicles';
 
-            // $this->load->model('Vehicle_model');
+            $this->load->model('admin/Vehicle_model');
 
-            // $data['drivers'] = $this->Vehicle_model->get_vehicles();
+            $data['vehicles'] = $this->Vehicle_model->get_vehicles();
 
             $this->load->view('admin/header');
             $this->load->view('admin/vehicles/index',$data);
             $this->load->view('admin/footer');
 
+        }
+
+        public function add_vehicle(){
+            $data['title'] = 'Add Vehicle';
+
+            $this->form_validation->set_rules('vehicle_no','Vehicle No','required');
+            $this->form_validation->set_rules('trailer_no','Trailer No','required');
+            $this->form_validation->set_rules('model','Model','required');
+
+            if($this->form_validation->run()===FALSE){
+                $this->load->view('admin/header');
+                $this->load->view('admin/vehicles/register',$data);
+                $this->load->view('admin/footer');
+            }else{
+
+                $this->load->model('admin/Vehicle_model');
+                $this->Vehicle_model->add_vehicle();
+
+                redirect('admin/get_vehicles');
+            }
+        }
+
+        public function remove_vehicle($vehicle_id){
+            
+            $this->load->model('admin/Vehicle_model');
+
+            $this->Vehicle_model->remove_vehicle($vehicle_id);
+
+            redirect('admin/get_vehicles');
         }
 
         public function register_driver(){
@@ -282,9 +311,25 @@
             $this->Hire_model->decline_hire($hire_type,$hire_id);
 
             $this->load->model('admin/Notification_model');
-            $this->Notification_model->decline_hire();
+            $this->Notification_model->decline_hire($hire_type,$hire_id);
 
             redirect('admin/get_hire_requests');
+        }
+
+        public function show_notifications(){
+
+            $data['title'] = 'Notifications';
+
+            $this->load->model('admin/Notification_model');
+            $data['notifications'] = $this->Notification_model->show_notifications();
+
+            $this->load->view('admin/header');
+            $this->load->view('admin/notifications/index',$data);
+            $this->load->view('admin/footer');
+        }
+
+        public function view_notification(){
+
         }
 
         

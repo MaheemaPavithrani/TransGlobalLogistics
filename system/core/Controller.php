@@ -85,9 +85,9 @@ class CI_Controller {
 		$this->load->model('admin/Hire_model');
 		$this->load->model('admin/Notification_model');
 
-            
+        
 		$this->requests = $this->Hire_model->hire_requests();
-		// $this->notifications = $this->Notification_model->get_notifications();
+		$this->notifications = $this->Notification_model->get_notifications();
 	}
 
 	// --------------------------------------------------------------------

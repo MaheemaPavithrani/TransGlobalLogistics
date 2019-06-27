@@ -55,7 +55,7 @@
                     <td><?php echo $driver['name']; ?></td>
                     <td><?php echo $driver['license_no']; ?></td>
                     <td><?php echo $driver['mobile'];?></td>
-                    <td>12345</td>
+                    <td><?php echo $driver['lorry_no'];?></td>
                     <td><a href="<?php echo base_url('admin/assign_driver/'.$hire_id.'/'.$driver['id'])?>" class="btn btn-primary">Assign</a>
                     </td>
                 </tr>

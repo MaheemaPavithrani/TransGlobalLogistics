@@ -11,7 +11,7 @@
                 <thead class="thead-dark">
                     <tr>
                     <th>Customer</th>
-                    <!-- <th>Vehicle</th> -->
+                    <th>Vehicle</th>
                     <th>Container</th>
                     <th>Date</th>
                     <th>Cargo Type</th>
@@ -23,6 +23,7 @@
                 <?php foreach($imports as $import): ?>
                     <tr>
                     <td><?php echo $import['c_name']; ?></td>
+                    <td><?php echo $import['v_no']; ?></td>
                     <td><?php echo $import['container_type']; ?></td>
                     <td><?php echo $import['container_pickup_datetime']; ?></td>
                     <td><?php echo $import['cargo_type']; ?></td>
@@ -39,6 +40,7 @@
                                 data-cargoType = "<?php echo $import['cargo_type']; ?>"
                                 data-weight = "<?php echo $import['weight']; ?>"
                                 data-notes = "<?php echo $import['notes']; ?>"
+                                data-lorry = "<?php echo $import['v_no']; ?>"
                             >More
                         </button>
                     </td>
@@ -62,7 +64,7 @@
                         <li class="list-group-item"> <h6>Cargo Type</h6> <br> <p id="cargoType"></p></li>
                         <li class="list-group-item"> <h6>Weight</h6> <br><p id="weight"></p></li>
                         <li class="list-group-item"> <h6>Notes</h6> <br><p id="notes"></li>
-                        <li class="list-group-item"> <h6>Lorry Number</h6> <br></li>
+                        <li class="list-group-item"> <h6>Lorry Number</h6> <br><p id="lorry"></p></li>
                         </ul>
                     </div>
                     </div>
@@ -76,7 +78,7 @@
                 <thead class="thead-dark">
                     <tr>
                     <th>Customer</th>
-                    <!-- <th>Vehicle</th> -->
+                    <th>Vehicle</th>
                     <th>Container</th>
                     <th>Date</th>
                     <th>Pick up</th>
@@ -88,6 +90,7 @@
                 <?php foreach($exports as $export): ?>
                     <tr>
                     <td><?php echo $export['c_name']; ?></td>
+                    <td><?php echo $export['v_no']; ?></td>
                     <td><?php echo $export['container_type']; ?></td>
                     <td><?php echo $export['pickup_datetime']; ?></td>
                     <td><?php echo $export['pickup_location']; ?></td>
@@ -102,6 +105,7 @@
                                 data-cargoType = "<?php echo $export['cargo_type']; ?>"
                                 data-weight = "<?php echo $export['weight']; ?>"
                                 data-notes = "<?php echo $export['notes']; ?>"
+                                data-lorry = "<?php echo $export['v_no']; ?>"
                             >More
                         </button>
                     </td>
@@ -123,7 +127,7 @@
                         <li class="list-group-item"> <h6>Cargo Type</h6> <br> <p id="excargoType"></p> </li>
                         <li class="list-group-item"> <h6>Weight</h6> <br> <p id="exweight"></p></li>
                         <li class="list-group-item"> <h6>Notes</h6> <br> <p id="exnotes"></p></li>
-                        <li class="list-group-item"> <h6>Lorry Number</h6> <br></li>
+                        <li class="list-group-item"> <h6>Lorry Number</h6> <br><p id="exlorry"></p></li>
                         </ul>
                         
                     </div>
@@ -151,6 +155,7 @@
         document.querySelector('.modal-body #cargoType').innerHTML = event.target.attributes['data-cargoType'].value;
         document.querySelector('.modal-body #weight').innerHTML = event.target.attributes['data-weight'].value;
         document.querySelector('.modal-body #notes').innerHTML = event.target.attributes['data-notes'].value;    
+        document.querySelector('.modal-body #lorry').innerHTML = event.target.attributes['data-lorry'].value;   
       })
     })
 
@@ -167,6 +172,7 @@
         document.querySelector('.modal-body #excargoType').innerHTML = event.target.attributes['data-cargoType'].value;
         document.querySelector('.modal-body #exweight').innerHTML = event.target.attributes['data-weight'].value;
         document.querySelector('.modal-body #exnotes').innerHTML = event.target.attributes['data-notes'].value;
+        document.querySelector('.modal-body #exlorry').innerHTML = event.target.attributes['data-lorry'].value; 
       })
     })
 

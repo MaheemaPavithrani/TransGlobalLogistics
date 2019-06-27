@@ -4,10 +4,10 @@
  	public function index()
  	{
 
- 		$this->load->model('Customer_model');
+ 		$this->load->model('customer/Customer_model');
  		$records=$this->Customer_model->getData();
 
- 		$this->load->view('customer_view',['records'=>$records]);
+ 		$this->load->view('customer/customer_view',['records'=>$records]);
  		
  	}
  	public function create(){
@@ -27,12 +27,10 @@
                 $this->form_validation->set_error_delimiters('<div class="text-danger">','</div>');
 
 
-
-
                 if ($this->form_validation->run())
                 {
                 $data=$this->input->post();
-                $this->load->model('Customer_model');
+                $this->load->model('customer/Customer_model');
                 if($this->Customer_model->saveData($data) )
                 {
                 	$this->session->set_flashdata('response','Recorded successfully!');
@@ -52,7 +50,7 @@
         
 
  	public function edit($record_id){
-		 	$this->load->model('Customer_model');
+		 	$this->load->model('customer/Customer_model');
 		 	$record=$this->Customer_model->getAllData($record_id);
 		    $this->load->view('update',['record'=>$record]);
  	}
@@ -75,7 +73,7 @@
                 if ($this->form_validation->run())
                 {
                 $data=$this->input->post();
-                $this->load->model('Customer_model');
+                $this->load->model('customer/Customer_model');
                 if($this->Customer_model->updateData($record_id,$data) )
                 {
                 	$this->session->set_flashdata('response','Record updated successfully!');
@@ -94,7 +92,7 @@
 
     public function delete($record_id)
     {
-     $this->load->model('Customer_model');
+     $this->load->model('customer/Customer_model');
      if($this->Customer_model->deleteData($record_id))
      {
      	$this->session->set_flashdata('response','Record deleted successfully!');

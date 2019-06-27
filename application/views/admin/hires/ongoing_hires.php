@@ -12,7 +12,7 @@
                     <tr>
                     <th>Customer</th>
                     <th>Assigned Driver</th>
-                    <!-- <th>Vehicle</th> -->
+                    <th>Vehicle</th>
                     <th>Container</th>
                     <th>Date</th>
                     <th>Cargo Type</th>
@@ -25,6 +25,7 @@
                     <tr>
                     <td><?php echo $import['c_name']; ?></td>
                     <td><?php echo $import['d_name']; ?></td>
+                    <td><?php echo $import['v_no']; ?></td>
                     <td><?php echo $import['container_type']; ?></td>
                     <td><?php echo $import['container_pickup_datetime']; ?></td>
                     <td><?php echo $import['cargo_type']; ?></td>
@@ -42,6 +43,7 @@
                                 data-weight = "<?php echo $import['weight']; ?>"
                                 data-notes = "<?php echo $import['notes']; ?>"
                                 data-driver = "<?php echo $import['d_name']; ?>"
+                                data-lorry = "<?php echo $import['v_no']; ?>"
                             >More
                         </button>
                         <a href="<?php echo base_url('admin/mark_completed/imports/'.$import['id'].'/'.$import['driver_id'])?>" class="btn btn-success">Completed</a>
@@ -67,7 +69,7 @@
                         <li class="list-group-item"> <h6>Weight</h6> <br><p id="weight"></p></li>
                         <li class="list-group-item"> <h6>Notes</h6> <br><p id="notes"></li>
                         <li class="list-group-item"> <h6>Driver Assigned</h6> <br> <p id="driver"></p></li>
-                        <li class="list-group-item"> <h6>Lorry Number</h6> <br></li>
+                        <li class="list-group-item"> <h6>Lorry Number</h6> <br><p id="lorry"></p></li>
                         </ul>
                     </div>
                     </div>
@@ -82,7 +84,7 @@
                     <tr>
                     <th>Customer</th>
                     <th>Assigned Driver</th>
-                    <!-- <th>Vehicle</th> -->
+                    <th>Vehicle</th>
                     <th>Container</th>
                     <th>Date</th>
                     <th>Pick up</th>
@@ -95,6 +97,7 @@
                     <tr>
                     <td><?php echo $export['c_name']; ?></td>
                     <td><?php echo $export['d_name']; ?></td>
+                    <td><?php echo $export['v_no']; ?></td>
                     <td><?php echo $export['container_type']; ?></td>
                     <td><?php echo $export['pickup_datetime']; ?></td>
                     <td><?php echo $export['pickup_location']; ?></td>
@@ -110,6 +113,7 @@
                                 data-weight = "<?php echo $export['weight']; ?>"
                                 data-notes = "<?php echo $export['notes']; ?>"
                                 data-driver = "<?php echo $export['d_name']; ?>"
+                                data-lorry = "<?php echo $import['v_no']; ?>"
                             >More
                         </button>
                         <a href="<?php echo base_url('admin/mark_completed/exports/'.$export['id'].'/'.$export['driver_id'])?>" class="btn btn-success">Completed</a>
@@ -133,7 +137,7 @@
                         <li class="list-group-item"> <h6>Weight</h6> <br> <p id="exweight"></p></li>
                         <li class="list-group-item"> <h6>Notes</h6> <br> <p id="exnotes"></p></li>
                         <li class="list-group-item"> <h6>Driver Assigned</h6> <br> <p id="exdriver"></p></li>
-                        <li class="list-group-item"> <h6>Lorry Number</h6> <br></li>
+                        <li class="list-group-item"> <h6>Lorry Number</h6> <br><p id="exlorry"></p></li>
                         </ul>
                         
                     </div>
@@ -162,9 +166,7 @@
         document.querySelector('.modal-body #weight').innerHTML = event.target.attributes['data-weight'].value;
         document.querySelector('.modal-body #notes').innerHTML = event.target.attributes['data-notes'].value;
         document.querySelector('.modal-body #driver').innerHTML = event.target.attributes['data-driver'].value;
-        // document.querySelector('#edit-form').action = (document.querySelector('.modal-body #form-main-action').value + event.target.attributes['data-id'].value)   
-        // console.log(document.querySelector('#edit-form').action);
-           
+        document.querySelector('.modal-body #lorry').innerHTML = event.target.attributes['data-lorry'].value; 
       })
     })
 
@@ -182,10 +184,7 @@
         document.querySelector('.modal-body #exweight').innerHTML = event.target.attributes['data-weight'].value;
         document.querySelector('.modal-body #exnotes').innerHTML = event.target.attributes['data-notes'].value;
         document.querySelector('.modal-body #exdriver').innerHTML = event.target.attributes['data-driver'].value;
-        // document.querySelector('#edit-form').action = (document.querySelector('.modal-body #form-main-action').value + event.target.attributes['data-id'].value)   
-        // console.log(document.querySelector('#edit-form').action);
-        // console.log('hello');
-           
+        document.querySelector('.modal-body #exlorry').innerHTML = event.target.attributes['data-lorry'].value;
       })
     })
 
