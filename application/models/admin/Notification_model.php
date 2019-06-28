@@ -39,5 +39,14 @@
             return $query->result_array();
         }
 
+        public function read_notification($id){
+
+            $data = array(
+                'visible' => 0
+            );
+            $this->db->where('id',$id);
+            return $this->db->update('notifications',$data);
+        }
+
     }
 ?>

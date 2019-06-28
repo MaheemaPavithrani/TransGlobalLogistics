@@ -12,6 +12,14 @@
             $data['hires_thismonth'] = $this->Hire_model->get_hires_this_month();
             $data['ongoing_hires'] = $this->Hire_model->ongoing_hires();
 
+            $this->load->model('Hire_model');
+            $graph1 = $this->Hire_model->graph_data_imports()->result();
+            $data['graph1'] = json_encode($graph1);
+
+            $this->load->model('Hire_model');
+            $graph2 = $this->Hire_model->graph_data_exports()->result();
+            $data['graph2'] = json_encode($graph2);
+
             $this->load->view('admin/header');
             $this->load->view('admin/index',$data);
             $this->load->view('admin/footer');
@@ -328,9 +336,21 @@
             $this->load->view('admin/footer');
         }
 
-        public function view_notification(){
+        public function read_notification($id){
 
+            $this->load->model('admin/Notification_model');
+            $this->Notification_model->read_notification($id);
+
+            redirect('admin/get_hire_requests');
         }
+
+        // public function graph_data(){
+
+        //     $this->load->model('Hire_model');
+        //     $data = $this->Hire_model->graph_data()->result();
+        //     $x['data'] = json_encode($data);
+        //     print_r($data);
+        // }
 
         
        

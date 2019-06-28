@@ -253,5 +253,29 @@
             $this->db->where('id',$hire_id);
             $this->db->update($hire_type,$data);
         }
+
+        public function graph_data_imports(){
+            $this->db->select('YEAR(i.container_pickup_datetime) as im,count(DISTINCT i.id) as import_count');
+            
+            $this->db->from('imports as i');
+
+            $this->db->group_by('YEAR(i.container_pickup_datetime)');
+ 
+            $graph = $this->db->get();
+
+            return $graph;
+        }
+
+        public function graph_data_exports(){
+            $this->db->select('YEAR(e.pickup_datetime) as ex,count(DISTINCT e.id) as export_count');
+            
+            $this->db->from('exports as e');
+
+            $this->db->group_by('YEAR(e.pickup_datetime)');
+ 
+            $graph = $this->db->get();
+
+            return $graph;
+        }
     }
 ?>

@@ -65,6 +65,38 @@
             </tbody>
         </table>
       </div>
+      <br><br>
+      <div style="padding-top:10px">
+        <h2>Performance</h2>
+      </div>
+      <br>
+      <h4 class="text-center">Imports</h4>
+      <div id="graph1"></div>
+      <br><br>
+      <div style="padding-top:10px">
+        <h4 class="text-center">Exports</h4>
+      </div>
+      <div id="graph2"></div>
+      <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+      <script>
+        Morris.Line({
+          element: 'graph1',
+          data: <?php echo $graph1; ?>,
+          xkey: 'im',
+          ykeys: ['import_count'],
+          labels: ['imports']
+        });
+
+        Morris.Line({
+          element: 'graph2',
+          data: <?php echo $graph2; ?>,
+          xkey: 'ex',
+          ykeys: ['export_count'],
+          labels: ['exports']
+        });
+      </script>
     </div>
     
   </div>
