@@ -33,7 +33,7 @@
                         <a class="nav-link" href="#"><h4>About Us</h4></a>
                     </li>
                     <li class="nav-item" style="padding-right:10px;">
-                        <a class="nav-link" href="#"><h4>Services</h4></a>
+                        <a class="nav-link" href="<?php echo base_url('Customer/services')?>"><h4>Services</h4></a>
                     </li>
                     <li class="nav-item" style="padding-right:10px;">
                         <a class="nav-link" href="<?php echo base_url('Customer/contact')?>"><h4>Contact</h4></a>

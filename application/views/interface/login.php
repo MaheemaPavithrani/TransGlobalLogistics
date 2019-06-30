@@ -10,13 +10,38 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="icon" href="https://media.licdn.com/dms/image/C560BAQHIlPIKxknf6g/company-logo_200_200/0?e=2159024400&v=beta&t=hqba1sMbj0ANgyUMPELFnaBGYGKMit2qZy7pxPzrkt0">
 
 	<link rel="stylesheet" type="text/css" href="../../css/loginstyle.css">
 </head>
 <body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a style="text-decoration:none" class=" text-white" href="<?php echo base_url('Homepage')?>"><h3>Trans Global Logistics</h3></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item" style="padding-right:10px;">
+                        <a class="nav-link" href="<?php echo base_url('Homepage')?>"><h4>Home</h4></a>
+                    </li>
+                    <li class="nav-item" style="padding-right:10px;">
+                        <a class="nav-link" href="#"><h4>About Us</h4></a>
+                    </li>
+                    <li class="nav-item" style="padding-right:10px;">
+                        <a class="nav-link" href="#"><h4>Services</h4></a>
+                    </li>
+                    <li class="nav-item" style="padding-right:10px;">
+                        <a class="nav-link" href="<?php echo base_url('Homepage/contact')?>"><h4>Contact</h4></a>
+                    </li>
+                    <!-- <li>
+                        <a href = "<?php echo base_url('index.php/user/login'); ?>"><button style="float:right; position:right" class="btn btn-primary navbar-btn"><h4>Login</h4></button></a>
+                    </li> -->
+                </ul>
+            </div>
+    </nav>
 <div class="container">
 	<br>
-	<a href="<?php echo base_url('Homepage/index')?>" class="btn btn-primary">  BACK</a>
 	<div class="d-flex justify-content-center h-100">
 		<div class="card">
 			<div class="card-header">
@@ -64,4 +89,60 @@
 	</div>
 </div>
 </body>
+<footer class="footer bg-dark text-white">
+
+        <!-- Footer Links -->
+        <div class="container-fluid pt-5 pb-2">
+            <div class="row">
+
+                <div class="col-md-3 col-lg-4 col-xl-3">
+                    <h4>Trans Global Logistics</h4>
+                    <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                    <p>
+                        We have established a strong presence in the transportation industry. Our award-winning services earn a reputation for quality and excellence that few can rival.
+                    </p>
+                </div>
+
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
+                    <h4>Services</h4>
+                    <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                    <p><a href="<?php echo base_url('index.php/user/login')?>" class="text-white">Imports</a></p>
+                    <p><a href="<?php echo base_url('index.php/user/login')?>" class="text-white">Exports</a></p>
+                    <p><a href="<?php echo base_url('user/login')?>" class="text-white">Project Cargo</a></p>
+                    <p><a href="<?php echo base_url('user/login')?>" class="text-white">Consultation</a></p>
+                </div>
+
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto">
+                    <h4>Useful links</h4>
+                    <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                    <p><a href="<?php echo base_url('Homepage')?>" class="text-white">Home</a></p>
+                    <p><a href="#" class="text-white">About Us</a></p>
+                    <p><a href="#" class="text-white">Services</a></p>
+                    <p><a href="#" class="text-white">Contact</a></p>
+                </div>
+
+                <div class="col-md-4 col-lg-3 col-xl-3">
+                    <h4>Contact</h4>
+                    <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
+                    <p><i class="fa fa-home mr-3"></i> 66/22, Fortune Terrace, Pannipitiya</p>
+                    <p><i class="fa fa-envelope mr-3"></i> tgl@yahoo.com</p>
+                    <p><i class="fa fa-phone mr-3"></i> + 98 765 432 11</p>
+                    <p><i class="fa fa-print mr-3"></i> + 98 765 432 10</p>
+                </div>
+
+            </div>
+        </div>
+        <!-- Footer Links-->
+
+        <hr class="bg-white mx-4 mt-2 mb-1">
+
+        <!-- Copyright-->
+        <div class="container-fluid">
+            <p class="text-center m-0 py-1">
+                © 2019 Copyright <a href="<?php echo base_url('Homepage')?>" class="text-white">TRANS GLOBAL LOGISTICS</a>
+            </p>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
 </html>

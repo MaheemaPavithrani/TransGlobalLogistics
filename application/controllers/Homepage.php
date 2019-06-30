@@ -17,6 +17,14 @@
             $this->load->view('interface/footer');
         }
 
+        public function services(){
+
+            $this->load->view('interface/header');
+            $this->load->view('interface/services');
+            $this->load->view('interface/footer');
+
+        }
+
         
     }
 ?>

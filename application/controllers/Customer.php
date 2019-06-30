@@ -130,6 +130,19 @@
             $this->load->view('customer/footer');
 
          }
+
+         public function services(){
+
+            $this->load->model('Notifications_model');
+            $data['customer_notifications'] = $this->Notifications_model->get_customer_notifications($this->session->userdata('user_id'));
+
+            $this->load->view('customer/header',$data);
+            $this->load->view('customer/services');
+            $this->load->view('customer/footer');
+
+         }
+
+         
    }
 
 ?>
