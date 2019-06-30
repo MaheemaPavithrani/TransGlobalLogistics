@@ -5,12 +5,12 @@
             $this->load->database();
         }
 
-        public function decline_hire($hire_type,$hire_id){
+        public function decline_hire($hire_type,$hire_id,$receiver_id){
 
             $data = array(
                 'sender_id' => 1,
                 'title' => "Hire Request Declined",
-                'receiver_id' => $this->input->post('customer'),
+                'receiver_id' => $receiver_id,
                 'message' => $this->input->post('message'),
                 'hire_id' => $hire_id,
                 'hire_type' => $hire_type

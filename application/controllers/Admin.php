@@ -318,8 +318,11 @@
             $this->load->model('admin/Hire_model');
             $this->Hire_model->decline_hire($hire_type,$hire_id);
 
+            $this->load->model('Customers_model');
+            $customer_user_id = $this->Customers_model->get_user_id($this->input->post('customer'));
+
             $this->load->model('admin/Notification_model');
-            $this->Notification_model->decline_hire($hire_type,$hire_id);
+            $this->Notification_model->decline_hire($hire_type,$hire_id,$customer_user_id['user_id']);
 
             redirect('admin/get_hire_requests');
         }
@@ -336,12 +339,21 @@
             $this->load->view('admin/footer');
         }
 
-        public function read_notification($id){
+        public function read_notification($notification,$id){
 
             $this->load->model('admin/Notification_model');
             $this->Notification_model->read_notification($id);
 
-            redirect('admin/get_hire_requests');
+            if($notification == 'hire_request'){
+
+                redirect('admin/get_hire_requests');
+
+            }elseif($notification == 'hire_complete'){
+
+                redirect('admin/get_ongoing_hires');
+            }
+
+            
         }
 
         // public function graph_data(){

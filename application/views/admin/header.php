@@ -12,6 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/bootstrap.css">
+    <link rel="icon" href="https://media.licdn.com/dms/image/C560BAQHIlPIKxknf6g/company-logo_200_200/0?e=2159024400&v=beta&t=hqba1sMbj0ANgyUMPELFnaBGYGKMit2qZy7pxPzrkt0">
     <script src="http://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
     <title>Admin
 
@@ -24,14 +25,11 @@
      
       <ul class="navbar-nav px-3">
         <div class="row">
-          <!-- <li class="nav-item text-nowrap" style="padding-right:10px">
-            <a class="nav-link" href="#"><i class="fa fa-bell fa-fw"></i> Notifications <span class="badge badge-light">4</span></a>
-          </li> -->
           <li class="nav-item text-nowrap" style="padding-right:20px">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i> Admin</a>
             <div class="dropdown-menu dropdown-menu-right" style="right: 0px; left: auto;">
                 <a class="dropdown-item" href="<?php echo base_url('admin/view_profile');?>">Profile</a>
-                <a class="dropdown-item" href="">Logout</a>
+                <a class="dropdown-item" href="<?php echo base_url('User/logout'); ?>">Logout</a>
             </div>
           </li>
         </div> 

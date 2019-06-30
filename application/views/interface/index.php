@@ -1,38 +1,37 @@
-
     <!-- Card -->
     <br>
     <div class="container container mt-4 mb-5">
-        <br><br>
-        <h1 class="display-4 text-center"><strong> Welcome to Trans Global Logistics </strong></h1><br>
+        <br><br><br>
+        <h3 class="display-4 text-center"><strong> Welcome to Trans Global Logistics </strong></h3>
         <hr class="bg-dark mb-4 w-25">
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
-                    <img class="card-img-top" src="https://nowthatslogistics.com/wp-content/uploads/2019/06/As-Ocean-Rates-Rise-1200-350x250.png" alt="Card image cap">
+                    <img class="card-img-top" src="https://dummyimage.com/350x250/c7c7c7/000.png" alt="Card image cap">
                     <div class="card-block p-3">
-                        <h4 class="card-title">Place Your Import Hire</h4>
+                        <h4 class="card-title">Drive with us</h4>
                         <p class="card-text"></p>
-                        <a href="<?php echo base_url('customer/send_import_request')?>" class="btn btn-primary rounded-0 mb-2">Send Import Request</a>
+                        <a href="#" class="btn btn-primary rounded-0 mb-2">Register</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card">
-                    <img class="card-img-top" src="http://dzi.com.pk/wp-content/uploads/2018/01/58298a9dbb9c4-350x250.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="https://dummyimage.com/350x250/c7c7c7/000.png" alt="Card image cap">
                     <div class="card-block p-3">
-                        <h4 class="card-title">Place Your Export Hire</h4>
-                        <p class="card-text"></p>
-                        <a href="<?php echo base_url('customer/send_export_request')?>" class="btn btn-primary rounded-0 mb-2">Send Export Request</a>
+                        <h4 class="card-title">CSS</h4>
+                        <p class="card-text">When an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <a href="#" class="btn btn-primary rounded-0 mb-2">Read More</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card">
-                    <img class="card-img-top" src="https://www.cloudberrylab.com/resources/wp-content/uploads/2018/09/6_06-350x250.png" alt="Card image cap">
+                    <img class="card-img-top" src="https://dummyimage.com/350x250/c7c7c7/000.png" alt="Card image cap">
                     <div class="card-block p-3">
-                        <h4 class="card-title">Manage Your Hires</h4>
-                        <p class="card-text"></p>
-                        <a href="<?php echo base_url('customer/manage_hires')?>" class="btn btn-primary rounded-0 mb-2">Manage Hires</a>
+                        <h4 class="card-title">BOOTSTRAP</h4>
+                        <p class="card-text">When an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <a href="#" class="btn btn-primary rounded-0 mb-2">Read More</a>
                     </div>
                 </div>
             </div>
@@ -41,6 +40,7 @@
     <!-- Card -->
 
     <!-- Carousel -->
+
     <div id="carouselLogo" class="carousel slide" style="overflow:hidden;" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselLogo" data-slide-to="0" class="active"></li>
@@ -128,5 +128,3 @@
         </div>
     </div>
     </div>
-
-    

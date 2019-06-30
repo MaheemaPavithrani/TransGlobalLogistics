@@ -9,11 +9,22 @@
             <table class="table">
                 <tbody>
                 <?php foreach($notifications as $note): ?>
-                    <tr>
-                    <td><?php echo $note['title']; ?> : <?php echo $note['hire_type']; ?></td>
-                    <td> <a class="btn btn-primary" href="<?php echo base_url('admin/read_notification/'.$note['id']);?>">View</a>
-                    </td>
-                    </tr>
+
+                    <?php if($note['title'] == 'New Hire Request'): ?>
+                        <tr>
+                        <td><?php echo $note['title']; ?> : <?php echo $note['hire_type']; ?></td>
+                        <td> <a class="btn btn-primary" href="<?php echo base_url('admin/read_notification/hire_request/'.$note['id']);?>">View</a>
+                        </td>
+                        </tr>
+                    <?php elseif($note['title'] == 'Hire Completed'): ?> 
+                        <tr>
+                        <td><?php echo $note['title']; ?> : <?php echo $note['message']; ?></td>
+                        <td> <a class="btn btn-primary" href="<?php echo base_url('admin/read_notification/hire_complete/'.$note['id']);?>">View</a>
+                        </td>
+                        </tr>
+                    <?php else: ?>  
+
+                    <?php endif;?>
                 <?php endforeach;?>
                 </tbody>
             </table>

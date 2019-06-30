@@ -1,109 +1,135 @@
 <?php
- class Customer extends CI_Controller
- {
- 	public function index()
- 	{
+   class Customer extends CI_Controller{
+         public function index(){
 
- 		$this->load->model('customer/Customer_model');
- 		$records=$this->Customer_model->getData();
+            $this->load->model('Customers_model');
+            $data['customer'] = $this->Customers_model->get_customer_data($this->session->userdata('user_id'));
 
- 		$this->load->view('customer/customer_view',['records'=>$records]);
- 		
- 	}
- 	public function create(){
-       $this->load->view('create');
- 	}
+            $this->load->model('Notifications_model');
+            $data['customer_notifications'] = $this->Notifications_model->get_customer_notifications($this->session->userdata('user_id'));
 
- 	public function save(){
+            $this->load->view('customer/header',$data);
+            $this->load->view('customer/index',$data);
+            $this->load->view('customer/footer');
+         
+         }
 
-                $this->form_validation->set_rules('name', 'name', 'required');
-                $this->form_validation->set_rules('dob', 'Date of birth', 'required');
-                $this->form_validation->set_rules('mobile', 'Mobile', 'required');
-                $this->form_validation->set_rules('email', 'Email', 'required');
-                $this->form_validation->set_rules('username', 'Username', 'required');
-                $this->form_validation->set_rules('password', 'Password', 'required');
-                $this->form_validation->set_rules('register_date', 'register_date', 'required');
-                $this->form_validation->set_rules('avail', 'avail', 'required');
-                $this->form_validation->set_error_delimiters('<div class="text-danger">','</div>');
+         public function send_import_request(){
+
+            $this->form_validation->set_rules('container_type','Container Type','required');
+            $this->form_validation->set_rules('container_pickup_datetime','Container Pickup Date and Time','required');
+            $this->form_validation->set_rules('container_pickup_location','Container Pickup Location','required');
+            $this->form_validation->set_rules('loading_port','Loading Port','required');
+            $this->form_validation->set_rules('vessel_arrival_datetime','Vessel Arrival Date and Time','required');
+            $this->form_validation->set_rules('destination','Destination','required');
+            $this->form_validation->set_rules('cargo_type','Cargo Type','required');
+            $this->form_validation->set_rules('weight','Weight','required');
+
+            $data['title'] = 'New Import Request';
+
+            $this->load->model('Customers_model');
+            $data['customer'] = $this->Customers_model->get_customer_data($this->session->userdata('user_id'));
+
+            if($this->form_validation->run() == false){
+
+               $this->load->view('customer/header');
+               $this->load->view('customer/import_request',$data);
+               $this->load->view('customer/footer');
+            }else{
+               $this->load->model('Hires_model');
+
+               $this->Hires_model->place_import_request();
+               redirect('Customer/manage_hires');
+            }
+         }
+
+         public function send_export_request(){
+
+            $this->form_validation->set_rules('pickup_datetime','Pickup Date and Time','required');
+            $this->form_validation->set_rules('pickup_location','Pickup Location','required');
+            $this->form_validation->set_rules('loading_port','Loading Port','required');
+            $this->form_validation->set_rules('cargo_type','Cargo Type','required');
+            $this->form_validation->set_rules('weight','Weight','required');
+
+            $data['title'] = 'New Export Request';
+
+            $this->load->model('Customers_model');
+            $data['customer'] = $this->Customers_model->get_customer_data($this->session->userdata('user_id'));
+
+            if($this->form_validation->run() == false){
+
+               $this->load->view('customer/header');
+               $this->load->view('customer/export_request',$data);
+               $this->load->view('customer/footer');
+            }else{
+               $this->load->model('Hires_model');
+
+               $this->Hires_model->place_export_request();
+               redirect('Customer/manage_hires');
+            }
+         }
+
+         public function manage_hires(){
+
+            $this->load->model('Customers_model');
+            $data['customer'] = $this->Customers_model->get_customer_data($this->session->userdata('user_id'));
+
+            
+            $this->load->model('Hires_model');
+
+            $data['past_title'] = 'Past Hires';
+            $data['past_imports'] = $this->Hires_model->get_past_hires('imports',$data['customer']['id']);
+            $data['past_exports'] = $this->Hires_model->get_past_hires('exports',$data['customer']['id']);
 
 
-                if ($this->form_validation->run())
-                {
-                $data=$this->input->post();
-                $this->load->model('customer/Customer_model');
-                if($this->Customer_model->saveData($data) )
-                {
-                	$this->session->set_flashdata('response','Recorded successfully!');
-                }
-                else
-                {
-                	$this->session->set_flashdata('response','Record Failed!');
-                }
-                return redirect('customer');
-				}
-				else 
-				{
-				$this->load->view('create');
-				}
-    }
+            $data['hire_requests'] = 'Hire Requests';
+            $data['import_requests'] = $this->Hires_model->get_import_requests($data['customer']['id']);
+            $data['export_requests'] = $this->Hires_model->get_export_requests($data['customer']['id']);
 
-        
+            $data['ongoing_hires'] = 'Ongoing Hires';
+            $data['ongoing_imports'] = $this->Hires_model->get_ongoing_imports($data['customer']['id']);
+            $data['ongoing_exports'] = $this->Hires_model->get_ongoing_exports($data['customer']['id']);
 
- 	public function edit($record_id){
-		 	$this->load->model('customer/Customer_model');
-		 	$record=$this->Customer_model->getAllData($record_id);
-		    $this->load->view('update',['record'=>$record]);
- 	}
+            $data['rejected_hires'] = 'Rejected Hires';
+            $data['rejected_imports'] = $this->Hires_model->get_rejected_imports($data['customer']['id']);
+            $data['rejected_exports'] = $this->Hires_model->get_rejected_exports($data['customer']['id']);
 
-    public function update($record_id)
-    {
-    	  $this->form_validation->set_rules('name', 'name', 'required');
-                $this->form_validation->set_rules('dob', 'Date of birth', 'required');
-                $this->form_validation->set_rules('mobile', 'Mobile', 'required');
-                $this->form_validation->set_rules('email', 'Email', 'required');
-                $this->form_validation->set_rules('username', 'Username', 'required');
-                $this->form_validation->set_rules('password', 'Password', 'required');
-                $this->form_validation->set_rules('register_date', 'register_date', 'required');
-                $this->form_validation->set_rules('avail', 'avail', 'required');
-                $this->form_validation->set_error_delimiters('<div class="text-danger">','</div>');
+            $this->load->model('Notifications_model');
+            $data['customer_notifications'] = $this->Notifications_model->get_customer_notifications($this->session->userdata('user_id'));
 
+            $this->load->view('customer/header',$data);
+            $this->load->view('customer/manage_hires',$data);
+            $this->load->view('customer/footer');
+         }
 
+         public function delete_hire($table,$hire_id){
 
+            $this->load->model('Hires_model');
 
-                if ($this->form_validation->run())
-                {
-                $data=$this->input->post();
-                $this->load->model('customer/Customer_model');
-                if($this->Customer_model->updateData($record_id,$data) )
-                {
-                	$this->session->set_flashdata('response','Record updated successfully!');
-                }
-                else
-                {
-                	$this->session->set_flashdata('response','Record Failed!');
-                }
-                return redirect('customer');
-				}
-				else 
-				{
-				$this->load->view('update');
-				}
-    }
+            $this->Hires_model->delete_hire($table,$hire_id);
 
-    public function delete($record_id)
-    {
-     $this->load->model('customer/Customer_model');
-     if($this->Customer_model->deleteData($record_id))
-     {
-     	$this->session->set_flashdata('response','Record deleted successfully!');
-     }
-     else{
-     	$this->session->set_flashdata('response','Failed to delete!');
-     }
-      return redirect('customer');
-    }
+            redirect('Customer/manage_hires');
+         }
 
-  
- }
+         public function view_notification($notification_id){
+
+            $this->load->model('Notifications_model');
+
+            $this->Notifications_model->mark_read($notification_id);
+
+            redirect('Customer/manage_hires');
+         }
+
+         public function contact(){
+
+            $this->load->model('Notifications_model');
+            $data['customer_notifications'] = $this->Notifications_model->get_customer_notifications($this->session->userdata('user_id'));
+
+            $this->load->view('customer/header',$data);
+            $this->load->view('customer/contact');
+            $this->load->view('customer/footer');
+
+         }
+   }
 
 ?>

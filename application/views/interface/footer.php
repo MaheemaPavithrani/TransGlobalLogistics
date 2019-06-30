@@ -17,16 +17,16 @@
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto">
                     <h4>Services</h4>
                     <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
-                    <p><a href="<?php echo base_url('customer/send_import_request')?>" class="text-white">Imports</a></p>
-                    <p><a href="<?php echo base_url('customer/send_export_request')?>" class="text-white">Exports</a></p>
-                    <p><a href="#" class="text-white">Project Cargo</a></p>
-                    <p><a href="#" class="text-white">Consultation</a></p>
+                    <p><a href="<?php echo base_url('index.php/user/login')?>" class="text-white">Imports</a></p>
+                    <p><a href="<?php echo base_url('index.php/user/login')?>" class="text-white">Exports</a></p>
+                    <p><a href="<?php echo base_url('user/login')?>" class="text-white">Project Cargo</a></p>
+                    <p><a href="<?php echo base_url('user/login')?>" class="text-white">Consultation</a></p>
                 </div>
 
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto">
                     <h4>Useful links</h4>
                     <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
-                    <p><a href="<?php echo base_url('User/index')?>" class="text-white">Home</a></p>
+                    <p><a href="<?php echo base_url('Homepage')?>" class="text-white">Home</a></p>
                     <p><a href="#" class="text-white">About Us</a></p>
                     <p><a href="#" class="text-white">Services</a></p>
                     <p><a href="#" class="text-white">Contact</a></p>
@@ -50,7 +50,7 @@
         <!-- Copyright-->
         <div class="container-fluid">
             <p class="text-center m-0 py-1">
-                © 2019 Copyright <a href="<?php echo base_url('User/index')?>" class="text-white">TRANS GLOBAL LOGISTICS</a>
+                © 2019 Copyright <a href="<?php echo base_url('Homepage')?>" class="text-white">TRANS GLOBAL LOGISTICS</a>
             </p>
         </div>
         <!-- Copyright -->

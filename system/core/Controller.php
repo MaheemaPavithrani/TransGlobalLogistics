@@ -60,6 +60,8 @@ class CI_Controller {
 
 	public $requests;
 	public $notifications;
+	public $assignments;
+	public $customer_notifications;
 
 	/**
 	 * Class constructor
@@ -84,10 +86,20 @@ class CI_Controller {
 
 		$this->load->model('admin/Hire_model');
 		$this->load->model('admin/Notification_model');
+		$this->load->model('Hires_model');
+		$this->load->model('Notifications_model');
+
+		$this->load->model('Drivers_model');
+		$this->assignment_driverid = $this->Drivers_model->get_driver_data($this->session->userdata('user_id'));
 
         
 		$this->requests = $this->Hire_model->hire_requests();
 		$this->notifications = $this->Notification_model->get_notifications();
+		$this->assignments = $this->Hires_model->get_assignments_count($this->assignment_driverid['id']);
+		$query = $this->Notifications_model->get_customer_notifications($this->session->userdata('user_id'));
+		$this->customer_notifications = count($query);
+		
+		
 	}
 
 	// --------------------------------------------------------------------

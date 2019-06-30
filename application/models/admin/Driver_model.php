@@ -59,7 +59,7 @@
                 $this->db->from('drivers');
                 $this->db->join('vehicles','vehicles.driver_id = drivers.id');
                 $this->db->where('drivers.avail',1);
-                $this->db->where('drivers.on_hire',0);
+                // $this->db->where('drivers.on_hire',0);
                 $query = $this->db->get();
 
                 return $query->result_array();
