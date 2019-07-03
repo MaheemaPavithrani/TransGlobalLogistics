@@ -2,15 +2,21 @@
    class Customer extends CI_Controller{
          public function index(){
 
-            $this->load->model('Customers_model');
-            $data['customer'] = $this->Customers_model->get_customer_data($this->session->userdata('user_id'));
+            if($this->session->userdata('user_type')=== 'customer'){
+               $this->load->model('Customers_model');
+               $data['customer'] = $this->Customers_model->get_customer_data($this->session->userdata('user_id'));
+   
+               $this->load->model('Notifications_model');
+               $data['customer_notifications'] = $this->Notifications_model->get_customer_notifications($this->session->userdata('user_id'));
+   
+               $this->load->view('customer/header',$data);
+               $this->load->view('customer/index',$data);
+               $this->load->view('customer/footer');
+            }
+            else{
 
-            $this->load->model('Notifications_model');
-            $data['customer_notifications'] = $this->Notifications_model->get_customer_notifications($this->session->userdata('user_id'));
-
-            $this->load->view('customer/header',$data);
-            $this->load->view('customer/index',$data);
-            $this->load->view('customer/footer');
+               redirect('User/login');     
+            }
          
          }
 
@@ -126,7 +132,7 @@
             $data['customer_notifications'] = $this->Notifications_model->get_customer_notifications($this->session->userdata('user_id'));
 
             $this->load->view('customer/header',$data);
-            $this->load->view('customer/contact');
+            $this->load->view('interface/contact');
             $this->load->view('customer/footer');
 
          }
@@ -137,7 +143,7 @@
             $data['customer_notifications'] = $this->Notifications_model->get_customer_notifications($this->session->userdata('user_id'));
 
             $this->load->view('customer/header',$data);
-            $this->load->view('customer/services');
+            $this->load->view('interface/services');
             $this->load->view('customer/footer');
 
          }

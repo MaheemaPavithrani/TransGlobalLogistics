@@ -4,9 +4,9 @@
         <img src="https://www.faxination.com/wp-content/uploads/2016/10/1960x980-logistics1-1024x1024.jpg" alt="">
     </div>
 <div class="col-md-9">
-    <br><br><br>
-    <h2><?php echo $title; ?></h2>
-    <br>
+    <br><br><br><br><br>
+    <h2 class="text-center"><?php echo $title; ?></h2>
+    <br><br>
     <?php echo validation_errors();?>
 
     <?php echo form_open('customer/send_export_request')?>

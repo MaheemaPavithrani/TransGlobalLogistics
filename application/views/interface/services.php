@@ -1,8 +1,12 @@
 <br><br><br><br><br>
 <div class="container how-section1">
+    <br><br><br>
+    <h3 class="display-4 text-center"><strong>Our Services</strong></h3>
+    <hr class="bg-dark mb-3 w-25">
+    <br>
     <div class="row">
         <div class="col-md-6 how-img">
-            <img src="https://image.ibb.co/dDW27U/Work_Section2_freelance_img1.png" class="rounded-circle img-fluid" alt=""/>
+            <img src="https://www.marsshipping.net/pcat-gifs/products-small/project-odc-shipments.jpg" class="rounded-circle img-fluid" alt=""/>
         </div>
         <div class="col-md-6">
             <h4>PROJECT CARGO</h4>
@@ -22,13 +26,14 @@
                             With a professional and dedicated team we will assist you find the right solution for any transportation need that includes importing and exporting, 
                             air freight and sea freight, quarantine and customs clearance, warehousing and distribution, or dangerous goods handling.</p>
         </div>
-        <div class="col-md-6 how-img">
-            <img src="https://image.ibb.co/cHgKnU/Work_Section2_freelance_img2.png" class="rounded-circle img-fluid" alt=""/>
+        <br>
+        <div class="col-md-6 how-img" style="padding-top:30px;">
+            <img src="https://www.goodrichwatson.com/wp-content/uploads/2015/06/Autonomous-Freight-Vehicles-4-Things-You-Should-Know1.jpg" class="rounded-circle img-fluid" alt=""/>
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6 how-img">
-                <img src="https://image.ibb.co/ctSLu9/Work_Section2_freelance_img3.png" class="rounded-circle img-fluid" alt=""/>
+        <div class="col-md-6 how-img" style="padding-top:60px;">
+                <img src="https://www.eurofret.com/wp-content/uploads/2017/12/entreposage-eurofret.jpg" class="rounded-circle img-fluid" alt=""/>
         </div>
         <div class="col-md-6">
             <h4>WAREHOUSING</h4>
@@ -55,8 +60,8 @@
                             each step of the way acting and making the right decision on your behalf from clearing your goods to delivering to your final destination.
                             Whether your business is a first-time importer of a startup or a large volume importer in a big industry, we handle each with great care as all our clients are valuable to us.</p>
         </div>
-        <div class="col-md-6 how-img">
-            <img src="https://image.ibb.co/gQ9iE9/Work_Section2_freelance_img4.png" class="rounded-circle img-fluid" alt=""/>
+        <div class="col-md-6 how-img" style="padding-top:120px;">
+            <img src="http://www.hrforyou.in/image/cache/catalog/products/talent-brokerage-500x500.jpg" class="rounded-circle img-fluid" alt=""/>
         </div>
     </div>
 </div>

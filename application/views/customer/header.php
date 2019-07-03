@@ -26,24 +26,34 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
+
                     <li class="nav-item" style="padding-right:10px;">
                         <a class="nav-link" href="<?php echo base_url('User/index')?>"><h4>Home</h4></a>
                     </li>
+
+                    <li class="nav-item"><h4 class="nav-link">|</h4></li>
+
                     <li class="nav-item" style="padding-right:10px;">
                         <a class="nav-link" href="#"><h4>About Us</h4></a>
                     </li>
+
+                    <li class="nav-item"><h4 class="nav-link">|</h4></li>
+
                     <li class="nav-item" style="padding-right:10px;">
                         <a class="nav-link" href="<?php echo base_url('Customer/services')?>"><h4>Services</h4></a>
                     </li>
+
+                    <li class="nav-item"><h4 class="nav-link">|</h4></li>
+
                     <li class="nav-item" style="padding-right:10px;">
                         <a class="nav-link" href="<?php echo base_url('Customer/contact')?>"><h4>Contact</h4></a>
                     </li>
-                    <li>
-                        <a href=""> </a>
-                    </li>
-                    <li class="nav-item text-nowrap" style="padding-right:10px; padding-left:30px">
+
+                    <li class="nav-item"><h4 class="nav-link">|</h4></li>
+
+                    <li class="nav-item text-nowrap" style="padding-right:10px; padding-left:10px">
                       <a class="nav-link " data-toggle="dropdown" href="#"><h4><i class="fa fa-bell fa-fw"></i> <span class="badge badge-light"><?php echo $this->customer_notifications;?> </span></h4></a>
-                      <div class="dropdown-menu" style="right: 100px; left: auto; width: 500px; height: auto; opacity:0.9;">
+                      <div class="dropdown-menu" style="right: 100px; left: auto; width: 500px; height: auto;background-color:steelblue; opacity:0.9; ">
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><h5 class="text-center">Notifications</h5></li>
 
@@ -57,9 +67,10 @@
                         </ul>
                       </div>
                     </li>
+
                     <li class="nav-item text-nowrap" style="padding-right:20px">
                       <a class="nav-link" href="#" id="navbardrop" data-toggle="dropdown"><h4><i class="fa fa-user fa-fw"></i></h4></a>
-                      <div class="dropdown-menu" style="right: 0px; left: auto;">
+                      <div class="dropdown-menu" style="right: 0px; left: auto; opacity:0.9">
                           <a class="dropdown-item" href="<?php echo base_url('customer/view_profile');?>">Profile</a>
                           <a class="dropdown-item" href="<?php echo base_url('User/logout'); ?>">Logout</a>
                       </div>

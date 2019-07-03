@@ -28,8 +28,8 @@
                     <hr class="bg-white mb-2 mt-0 d-inline-block mx-auto w-25">
                     <p><a href="<?php echo base_url('Homepage')?>" class="text-white">Home</a></p>
                     <p><a href="#" class="text-white">About Us</a></p>
-                    <p><a href="#" class="text-white">Services</a></p>
-                    <p><a href="#" class="text-white">Contact</a></p>
+                    <p><a href="<?php echo base_url('Homepage/services')?>" class="text-white">Services</a></p>
+                    <p><a href="<?php echo base_url('Homepage/contact')?>" class="text-white">Contact</a></p>
                 </div>
 
                 <div class="col-md-4 col-lg-3 col-xl-3">

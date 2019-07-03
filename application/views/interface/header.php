@@ -29,17 +29,29 @@
                     <li class="nav-item" style="padding-right:10px;">
                         <a class="nav-link" href="<?php echo base_url('Homepage')?>"><h4>Home</h4></a>
                     </li>
+
+                    <li class="nav-item"><h4 class="nav-link">|</h4></li>
+
                     <li class="nav-item" style="padding-right:10px;">
                         <a class="nav-link" href="#"><h4>About Us</h4></a>
                     </li>
+
+                    <li class="nav-item"><h4 class="nav-link">|</h4></li>
+
                     <li class="nav-item" style="padding-right:10px;">
                         <a class="nav-link" href="<?php echo base_url('Homepage/services')?>"><h4>Services</h4></a>
                     </li>
+
+                    <li class="nav-item"><h4 class="nav-link">|</h4></li>
+
                     <li class="nav-item" style="padding-right:10px;">
                         <a class="nav-link" href="<?php echo base_url('Homepage/contact')?>"><h4>Contact</h4></a>
                     </li>
+
+                    <li class="nav-item"><h4 class="nav-link">|</h4></li>
+
                     <li>
-                        <a href = "<?php echo base_url('index.php/user/login'); ?>"><button style="float:right; position:right" class="btn btn-primary navbar-btn"><h4>Login</h4></button></a>
+                        <a href = "<?php echo base_url('index.php/user/login'); ?>"><button style="float:right; position:right" class="btn btn-primary navbar-btn btn-sm"><h4>Login</h4></button></a>
                     </li>
                 </ul>
             </div>
