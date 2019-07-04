@@ -543,7 +543,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                <?php foreach($past_exports as $export): ?>
+                <?php foreach($rejected_exports as $export): ?>
                     <tr>
                     <td><?php echo $export['id']; ?></td> 
                     <td><?php echo $export['container_type']; ?></td>

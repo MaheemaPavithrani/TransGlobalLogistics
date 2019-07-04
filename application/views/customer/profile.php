@@ -1,9 +1,10 @@
 
-<div class="container bootstrap snippet">
+<br><br><br><br>
+<div class="container bootstrap snippet" style="min-height:750px;">
     <br>
     <div class="row">
         <div class="col-sm-10">
-            <h1>Administrator</h1></div>
+            <h1><?php echo $this->session->userdata('username'); ?></h1></div>
         <div class="col-sm-2">
             <a href="/users" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="https://bootdey.com/img/Content/avatar/avatar1.png"></a>
         </div>
@@ -31,7 +32,7 @@
                 <div class="collapse" id="settings">
 
                     <hr>
-                    <?php echo form_open('admin/update_profile')?>
+                    <?php echo form_open('customer/update_profile')?>
                         <div class="form-group">
 
                             <div class="col-xs-6">
@@ -75,7 +76,7 @@
                         <br><br><hr>
                         <h3>Change Password</h3>
                         <br><br>
-                    <?php echo form_open('User/update_password')?>
+                    <?php echo form_open('User/update_password/Customer')?>
                         <div class="form-group">
 
                             <div class="col-xs-6">
@@ -107,6 +108,7 @@
                             </div>
                         </div>
                     </form>
+                    <br><br>
                 </div>
 
             </div>

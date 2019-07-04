@@ -26,7 +26,7 @@
         <div class="row">
           <li class="nav-item text-nowrap" style="padding-right:20px">
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown"><i class="fa fa-user fa-fw"></i> Admin</a>
-            <div class="dropdown-menu dropdown-menu-right" style="right: 0px; left: auto;">
+            <div class="dropdown-menu dropdown-menu-right" style="right: 0px; left: auto; opacity:0.9;">
                 <a class="dropdown-item" href="<?php echo base_url('admin/view_profile');?>">Profile</a>
                 <a class="dropdown-item" href="<?php echo base_url('User/logout'); ?>">Logout</a>
             </div>

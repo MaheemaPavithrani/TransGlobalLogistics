@@ -90,6 +90,10 @@
 
          public function manage_hires(){
 
+            if($this->session->userdata('user_type') != 'customer'){
+               redirect('User/login');
+            }
+
             $this->load->model('Customers_model');
             $data['customer'] = $this->Customers_model->get_customer_data($this->session->userdata('user_id'));
 
@@ -146,6 +150,10 @@
 
          public function contact(){
 
+            if($this->session->userdata('user_type') != 'customer'){
+               redirect('User/login');
+            }
+
             $this->load->model('Notifications_model');
             $data['customer_notifications'] = $this->Notifications_model->get_customer_notifications($this->session->userdata('user_id'));
 
@@ -157,6 +165,10 @@
 
          public function services(){
 
+            if($this->session->userdata('user_type') != 'customer'){
+               redirect('User/login');
+            }
+
             $this->load->model('Notifications_model');
             $data['customer_notifications'] = $this->Notifications_model->get_customer_notifications($this->session->userdata('user_id'));
 
@@ -165,6 +177,46 @@
             $this->load->view('customer/footer');
 
          }
+
+         public function about(){
+
+            if($this->session->userdata('user_type') != 'customer'){
+               redirect('User/login');
+            }
+
+            $this->load->model('Notifications_model');
+            $data['customer_notifications'] = $this->Notifications_model->get_customer_notifications($this->session->userdata('user_id'));
+
+            $this->load->view('customer/header',$data);
+            $this->load->view('interface/about');
+            $this->load->view('customer/footer');
+
+         }
+
+         public function view_profile(){
+
+            if($this->session->userdata('user_type') != 'customer'){
+               redirect('User/login');
+            }
+
+            $id = $this->session->userdata('user_id');
+
+            $this->load->model('User_model');
+            $data['profile'] = $this->User_model->get_profile_details('customers',$id);
+
+            $this->load->view('customer/header');
+            $this->load->view('customer/profile',$data);
+            $this->load->view('customer/footer');
+         }
+
+         public function update_profile(){
+
+            $this->load->model('User_model');
+
+            $this->User_model->update_profile('customers',$this->session->userdata('user_id'));
+
+            redirect('customer/view_profile');
+        } 
 
          
    }

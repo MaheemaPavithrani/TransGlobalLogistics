@@ -25,6 +25,13 @@
 
         }
 
+        public function about(){
+
+            $this->load->view('interface/header');
+            $this->load->view('interface/about');
+            $this->load->view('interface/footer');
+
+        }
         
     }
 ?>

@@ -52,6 +52,31 @@
             return $this->db->update($table,$data);
 
         }
+
+        public function update_password($id){
+
+            $old_pass = md5($this->input->post('old_password'));
+
+            if($this->input->post('new_password') == $this->input->post('verify_password') ){
+                
+                $new_pass = md5($this->input->post('new_password'));
+
+                $this->db->where('id',$id);
+                $this->db->where('password',$old_pass);
+                $this->db->update('users',array(
+                    'password' => $new_pass
+                ));
+
+                if($this->db->affected_rows() > 0){
+                    $this->session->set_flashdata('pass','Password changed Successfully');
+
+                }else{
+                    $this->session->set_flashdata('pass','Invalid Password');
+                }
+            }else{
+                $this->session->set_flashdata('pass','Passwords did not match');
+            }
+        }
     }
 
 ?>

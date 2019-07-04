@@ -53,9 +53,7 @@
             $this->User_model->update_profile('admin',$this->session->userdata('user_id'));
 
             redirect('admin/view_profile');
-        }
-
-         
+        }      
 
         public function get_drivers(){
 

@@ -95,6 +95,16 @@
 
             redirect('Homepage/index');
         }
+
+        public function update_password($user){
+
+            $this->load->model('User_model');
+
+            $this->User_model->update_password($this->session->userdata('user_id'));
+
+            redirect($user.'/view_profile');
+
+        }
         
     }
 ?>

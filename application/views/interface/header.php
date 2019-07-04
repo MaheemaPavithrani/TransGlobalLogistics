@@ -33,7 +33,7 @@
                     <li class="nav-item"><h4 class="nav-link">|</h4></li>
 
                     <li class="nav-item" style="padding-right:10px;">
-                        <a class="nav-link" href="#"><h4>About Us</h4></a>
+                        <a class="nav-link" href="<?php echo base_url('Homepage/about')?>"><h4>About Us</h4></a>
                     </li>
 
                     <li class="nav-item"><h4 class="nav-link">|</h4></li>
