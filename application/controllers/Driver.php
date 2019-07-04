@@ -2,6 +2,10 @@
    class Driver extends CI_Controller{
         public function index(){
 
+            if($this->session->userdata('user_type') != 'driver'){
+                redirect('User/login');
+             }
+
             $this->load->model('Drivers_model');
             $data['driver'] = $this->Drivers_model->get_driver_data($this->session->userdata('user_id'));
 
@@ -19,6 +23,10 @@
 
         public function get_driver_hires($driver_id){
 
+            if($this->session->userdata('user_type') != 'driver'){
+                redirect('User/login');
+            }
+
             $this->load->model('Hires_model');
 
             $this->load->model('Drivers_model');
@@ -34,6 +42,10 @@
         }
 
         public function assigned_hires($driver_id){
+
+            if($this->session->userdata('user_type') != 'driver'){
+                redirect('User/login');
+            }
 
             $this->load->model('Hires_model');
 

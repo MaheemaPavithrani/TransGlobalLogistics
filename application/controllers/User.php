@@ -5,24 +5,15 @@
             $data['username'] = $this->session->userdata('username');
 
             if($this->session->userdata('user_type') == 'admin'){
+
                 redirect('Admin');
+
             }else if($this->session->userdata('user_type') == 'customer'){
 
-                // $this->load->model('Customer_model');
-                // $data['customer'] = $this->Customer_model->get_customer_data($this->session->userdata('user_id'));
-
-                // $this->load->view('customer/header',$data);
-                // $this->load->view('customer/index',$data);
-                // $this->load->view('customer/footer');
                 redirect('customer/index');
 
             }else if($this->session->userdata('user_type') == 'driver'){
-                // $this->load->model('Driver_model');
-                // $data['driver'] = $this->Driver_model->get_driver_data($this->session->userdata('user_id'));
 
-                // $this->load->view('driver/header',$data);
-                // $this->load->view('driver/index',$data);
-                // $this->load->view('driver/footer');
                 redirect('driver/index');
             }
 
@@ -62,8 +53,9 @@
             $this->form_validation->set_rules('password','Password','required');
 
             if($this->form_validation->run() == FALSE){
+
                 $this->load->view('interface/login');
-            // $this->load->view('interface/footer');
+
             }else{
                 $password = md5($this->input->post('password'));
 
@@ -97,6 +89,7 @@
         }
 
         public function logout(){
+            
             $userdata = array('user_id', 'user_type');
             $this->session->unset_userdata($userdata);
 

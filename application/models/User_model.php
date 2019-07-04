@@ -28,6 +28,30 @@
             $query = $this->db->insert('users',$data);
             return $this->db->insert_id();
         }
+
+        public function get_profile_details($table,$id){
+
+            $this->db->select('*');
+            $this->db->from($table);
+            $this->db->where('user_id',$id);
+            $query = $this->db->get();
+
+            return $query->row_array();
+        }
+
+        public function update_profile($table,$user_id){
+            
+            $data = array(
+                'name' => $this->input->post('name'),
+                'dob' => $this->input->post('dob'),
+                'mobile' => $this->input->post('mobile'),
+                'email' => $this->input->post('email'),
+            );
+
+            $this->db->where('user_id',$user_id);
+            return $this->db->update($table,$data);
+
+        }
     }
 
 ?>

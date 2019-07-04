@@ -12,8 +12,7 @@
                $this->load->view('customer/header',$data);
                $this->load->view('customer/index',$data);
                $this->load->view('customer/footer');
-            }
-            else{
+            }else{
 
                redirect('User/login');     
             }
@@ -21,6 +20,10 @@
          }
 
          public function send_import_request(){
+
+            if($this->session->userdata('user_type') != 'customer'){
+               redirect('User/login');
+            }
 
             $this->form_validation->set_rules('container_type','Container Type','required');
             $this->form_validation->set_rules('container_pickup_datetime','Container Pickup Date and Time','required');
@@ -50,6 +53,10 @@
          }
 
          public function send_export_request(){
+
+            if($this->session->userdata('user_type') != 'customer'){
+               redirect('User/login');
+            }
 
             $this->form_validation->set_rules('pickup_datetime','Pickup Date and Time','required');
             $this->form_validation->set_rules('pickup_location','Pickup Location','required');
@@ -103,9 +110,14 @@
             $this->load->model('Notifications_model');
             $data['customer_notifications'] = $this->Notifications_model->get_customer_notifications($this->session->userdata('user_id'));
 
-            $this->load->view('customer/header',$data);
-            $this->load->view('customer/manage_hires',$data);
-            $this->load->view('customer/footer');
+            if($this->session->userdata('user_type')=== 'customer'){
+               $this->load->view('customer/header',$data);
+               $this->load->view('customer/manage_hires',$data);
+               $this->load->view('customer/footer');
+            }else{
+               redirect('User/login');
+            }
+            
          }
 
          public function delete_hire($table,$hire_id){

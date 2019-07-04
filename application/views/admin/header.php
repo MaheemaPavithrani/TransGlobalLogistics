@@ -21,7 +21,6 @@
 <body>
     <nav class="navbar navbar-dark navbar-toggleable-xl sticky-top bg-dark flex-md-nowrap p-0" id="nav">
       <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="<?php echo base_url('admin/index');?>"><h3>Trans Global Logistics</h3></a>
-      <!-- <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search"> -->
      
       <ul class="navbar-nav px-3">
         <div class="row">
@@ -75,13 +74,6 @@
       
                 <a href="<?php echo base_url('admin/get_hire_requests');?>" class="list-group-item list-group-item-light" style="color:black" ><h5><i class="fa fa-clock fa-fw"></i>  Hire Requests <span class="badge badge-light"><?php echo $this->requests;?></span></h5></a>
                 <a href="<?php echo base_url('admin/show_notifications');?>" class="list-group-item list-group-item-light" style="color:black" ><h5><i class="fa fa-bell fa-fw"></i>  Notifications <span class="badge badge-light"><?php echo $this->notifications;?></span></h5></a>
-
-                <!-- <a href="#reports" class="list-group-item list-group-item-light" data-toggle="collapse" style="color:black" ><h5><i class="fa fa-book fa-fw fa-fw" aria-hidden="true"></i>  Reports</h5></a>
-                <div class="collapse" id="reports">
-                  <a href="" class="list-group-item">This Month</a>
-                  <a href="" class="list-group-item">Last Quarter</a>
-                </div> -->
-
             </ul>
           </div>
         </nav>

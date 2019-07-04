@@ -20,21 +20,21 @@
                 <div class="collapse" id="settings">
 
                     <hr>
-                    <form class="form" action="##" method="post" id="registrationForm">
+                    <?php echo form_open('admin/update_profile')?>
                         <div class="form-group">
 
                             <div class="col-xs-6">
-                                <label for="first_name">
-                                    <h4>First name</h4></label>
-                                <input type="text" class="form-control" name="first_name" id="first_name" placeholder="first name" title="enter your first name if any." required>
+                                <label for="name">
+                                    <h4>Name</h4></label>
+                                <input type="text" class="form-control" name="name" id="name" placeholder="<?php echo $profile['name'];?>" value="<?php echo $profile['name'];?>" required>
                             </div>
                         </div>
                         <div class="form-group">
 
                             <div class="col-xs-6">
-                                <label for="last_name">
-                                    <h4>Last name</h4></label>
-                                <input type="text" class="form-control" name="last_name" id="last_name" placeholder="last name" title="enter your last name if any." required>
+                                <label for="dob">
+                                    <h4>Date of Birth</h4></label>
+                                <input type="text" class="form-control" name="dob" id="dob" placeholder="<?php echo $profile['dob'];?>" value="<?php echo $profile['dob'];?>" required>
                             </div>
                         </div>
 
@@ -42,7 +42,7 @@
                             <div class="col-xs-6">
                                 <label for="mobile">
                                     <h4>Mobile</h4></label>
-                                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="enter mobile number" title="enter your mobile number if any." required>
+                                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="<?php echo $profile['mobile'];?>" value="<?php echo $profile['mobile'];?>" required>
                             </div>
                         </div>
                         <div class="form-group">
@@ -50,30 +50,49 @@
                             <div class="col-xs-6">
                                 <label for="email">
                                     <h4>Email</h4></label>
-                                <input type="email" class="form-control" name="email" id="email" placeholder="you@email.com" title="enter your email." required>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="<?php echo $profile['email'];?>" value="<?php echo $profile['email'];?>" required>
                             </div>
                         </div>
 
                         <div class="form-group">
+                            <div class="col-xs-12">
+                                <br>
+                                <button class="btn btn-lg btn-success" type="submit"> Update</button>
+                            </div>
+                        </div>
+                    </form>
+                        <br><br><hr>
+                        <h3>Change Password</h3>
+                        <br><br>
+                    <?php echo form_open('User/update_password')?>
+                        <div class="form-group">
 
                             <div class="col-xs-6">
-                                <label for="password">
-                                    <h4>Password</h4></label>
-                                <input type="password" class="form-control" name="password" id="password" placeholder="password" title="enter your password." required>
+                                <label for="old_password">
+                                    <h4>Old Password</h4></label>
+                                <input type="password" class="form-control" name="old_password" id="password" placeholder="Old Password" required>
                             </div>
                         </div>
                         <div class="form-group">
 
                             <div class="col-xs-6">
-                                <label for="password2">
-                                    <h4>Verify</h4></label>
-                                <input type="password" class="form-control" name="password2" id="password2" placeholder="password" title="enter your password2." required>
+                                <label for="new_password">
+                                    <h4>New Password</h4></label>
+                                <input type="password" class="form-control" name="new_password" id="new_password" placeholder="New Password" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="verify_password">
+                                    <h4>Verify Passowrd</h4></label>
+                                <input type="password" class="form-control" name="verify_password" id="verify_password" placeholder="Verify Password" required>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-xs-12">
                                 <br>
-                                <button class="btn btn-lg btn-success" type="submit"> Update</button>
+                                <button class="btn btn-lg btn-success" type="submit"> Change Password</button>
                             </div>
                         </div>
                     </form>

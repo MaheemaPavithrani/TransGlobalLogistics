@@ -1,6 +1,11 @@
 <?php
     class Admin extends CI_Controller{
         public function index(){
+
+            if($this->session->userdata('user_type') != 'admin'){
+                redirect('User/login');
+            }
+
             $data['title'] = 'Administrator';
 
             $this->load->model('admin/Driver_model');
@@ -26,12 +31,38 @@
         }
 
         public function view_profile(){
+
+            if($this->session->userdata('user_type') != 'admin'){
+                redirect('User/login');
+            }
+
+            $id = $this->session->userdata('user_id');
+
+            $this->load->model('User_model');
+            $data['profile'] = $this->User_model->get_profile_details('admin',$id);
+
             $this->load->view('admin/header');
-            $this->load->view('admin/profile');
+            $this->load->view('admin/profile',$data);
             $this->load->view('admin/footer');
         }
 
+        public function update_profile(){
+
+            $this->load->model('User_model');
+
+            $this->User_model->update_profile('admin',$this->session->userdata('user_id'));
+
+            redirect('admin/view_profile');
+        }
+
+         
+
         public function get_drivers(){
+
+            if($this->session->userdata('user_type') != 'admin'){
+                redirect('User/login');
+            }
+
             $data['title'] = 'Drivers';
 
             $this->load->model('admin/Driver_model');
@@ -45,6 +76,11 @@
         }
 
         public function get_customers(){
+
+            if($this->session->userdata('user_type') != 'admin'){
+                redirect('User/login');
+            }
+
             $data['title'] = 'Customers';
 
             $this->load->model('admin/Customer_model');
@@ -58,6 +94,11 @@
         }
 
         public function get_vehicles(){
+
+            if($this->session->userdata('user_type') != 'admin'){
+                redirect('User/login');
+            }
+
             $data['title'] = 'Vehicles';
 
             $this->load->model('admin/Vehicle_model');
@@ -71,6 +112,11 @@
         }
 
         public function add_vehicle(){
+
+            if($this->session->userdata('user_type') != 'admin'){
+                redirect('User/login');
+            }
+
             $data['title'] = 'Add Vehicle';
 
             $this->form_validation->set_rules('vehicle_no','Vehicle No','required');
@@ -91,6 +137,10 @@
         }
 
         public function remove_vehicle($vehicle_id){
+
+            if($this->session->userdata('user_type') != 'admin'){
+                redirect('User/login');
+            }
             
             $this->load->model('admin/Vehicle_model');
 
@@ -100,6 +150,11 @@
         }
 
         public function register_driver(){
+
+            if($this->session->userdata('user_type') != 'admin'){
+                redirect('User/login');
+            }
+
             $data['title'] = 'Add Driver';
 
             $this->form_validation->set_rules('name','Name','required');
@@ -170,6 +225,11 @@
         }
 
         public function register_customer(){
+
+            if($this->session->userdata('user_type') != 'admin'){
+                redirect('User/login');
+            }
+
             $data['title'] = 'Add Customer';
 
             $this->form_validation->set_rules('name','Name','required');
@@ -198,6 +258,11 @@
         }
 
         public function get_imports(){
+
+            if($this->session->userdata('user_type') != 'admin'){
+                redirect('User/login');
+            }
+
             $data['title'] = 'Imports';
 
             $this->load->model('admin/Hire_model');
@@ -211,6 +276,11 @@
         }
 
         public function get_exports(){
+
+            if($this->session->userdata('user_type') != 'admin'){
+                redirect('User/login');
+            }
+
             $data['title'] = 'Exports';
 
             $this->load->model('admin/Hire_model');
@@ -224,6 +294,11 @@
         }
 
         public function get_ongoing_hires(){
+
+            if($this->session->userdata('user_type') != 'admin'){
+                redirect('User/login');
+            }
+
             $data['title'] = 'Ongoing Hires';
 
             $this->load->model('admin/Hire_model');
@@ -238,6 +313,11 @@
         }
 
         public function get_hire_requests(){
+
+            if($this->session->userdata('user_type') != 'admin'){
+                redirect('User/login');
+            }
+
             $data['title'] = 'New Hire Requests';
 
             $this->load->model('admin/Hire_model');
@@ -329,6 +409,10 @@
 
         public function show_notifications(){
 
+            if($this->session->userdata('user_type') != 'admin'){
+                redirect('User/login');
+            }
+
             $data['title'] = 'Notifications';
 
             $this->load->model('admin/Notification_model');
@@ -356,13 +440,6 @@
             
         }
 
-        // public function graph_data(){
-
-        //     $this->load->model('Hire_model');
-        //     $data = $this->Hire_model->graph_data()->result();
-        //     $x['data'] = json_encode($data);
-        //     print_r($data);
-        // }
 
         
        

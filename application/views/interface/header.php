@@ -50,7 +50,7 @@
 
                     <li class="nav-item"><h4 class="nav-link">|</h4></li>
 
-                    <li>
+                    <li class="nav-item" style="padding-right:10px;">
                         <a href = "<?php echo base_url('index.php/user/login'); ?>"><button style="float:right; position:right" class="btn btn-primary navbar-btn btn-sm"><h4>Login</h4></button></a>
                     </li>
                 </ul>
