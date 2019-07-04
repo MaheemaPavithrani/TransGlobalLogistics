@@ -20,32 +20,32 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-    <a style="text-decoration:none" class=" text-white" href="<?php echo base_url('Homepage')?>"><h3>Trans Global Logistics</h3></a>
+    <a style="text-decoration:none" class=" text-white" href="<?php echo base_url('Homepage/index')?>"><h3>Trans Global Logistics</h3></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item" style="padding-right:10px;">
-                        <a class="nav-link" href="<?php echo base_url('Homepage')?>"><h4>Home</h4></a>
+                        <a class="nav-link <?=($this->uri->segment(2)==='index')?'active':''?>" href="<?php echo base_url('Homepage/index')?>"><h4>Home</h4></a>
                     </li>
 
                     <li class="nav-item"><h4 class="nav-link">|</h4></li>
 
                     <li class="nav-item" style="padding-right:10px;">
-                        <a class="nav-link" href="<?php echo base_url('Homepage/about')?>"><h4>About Us</h4></a>
+                        <a class="nav-link <?=($this->uri->segment(2)==='about')?'active':''?>" href="<?php echo base_url('Homepage/about')?>"><h4>About Us</h4></a>
                     </li>
 
                     <li class="nav-item"><h4 class="nav-link">|</h4></li>
 
                     <li class="nav-item" style="padding-right:10px;">
-                        <a class="nav-link" href="<?php echo base_url('Homepage/services')?>"><h4>Services</h4></a>
+                        <a class="nav-link <?=($this->uri->segment(2)==='services')?'active':''?>" href="<?php echo base_url('Homepage/services')?>"><h4>Services</h4></a>
                     </li>
 
                     <li class="nav-item"><h4 class="nav-link">|</h4></li>
 
                     <li class="nav-item" style="padding-right:10px;">
-                        <a class="nav-link" href="<?php echo base_url('Homepage/contact')?>"><h4>Contact</h4></a>
+                        <a class="nav-link <?=($this->uri->segment(2)==='contact')?'active':''?>" href="<?php echo base_url('Homepage/contact')?>"><h4>Contact</h4></a>
                     </li>
 
                     <li class="nav-item"><h4 class="nav-link">|</h4></li>
@@ -56,6 +56,7 @@
                 </ul>
             </div>
     </nav>
+    
 
         
 

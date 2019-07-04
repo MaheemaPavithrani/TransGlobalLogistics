@@ -23,16 +23,16 @@
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item" style="padding-right:10px;">
-                        <a class="nav-link" href="<?php echo base_url('Homepage')?>"><h4>Home</h4></a>
+                        <a class="nav-link <?=($this->uri->segment(2)==='index')?'active':''?>" href="<?php echo base_url('Homepage/index')?>"><h4>Home</h4></a>
                     </li>
                     <li class="nav-item" style="padding-right:10px;">
-                        <a class="nav-link" href="<?php echo base_url('Homepage/about')?>"><h4>About Us</h4></a>
+                        <a class="nav-link <?=($this->uri->segment(2)==='about')?'active':''?>" href="<?php echo base_url('Homepage/about')?>"><h4>About Us</h4></a>
                     </li>
                     <li class="nav-item" style="padding-right:10px;">
-                        <a class="nav-link" href="<?php echo base_url('Homepage/services')?>"><h4>Services</h4></a>
+                        <a class="nav-link <?=($this->uri->segment(2)==='services')?'active':''?>" href="<?php echo base_url('Homepage/services')?>"><h4>Services</h4></a>
                     </li>
                     <li class="nav-item" style="padding-right:10px;">
-                        <a class="nav-link" href="<?php echo base_url('Homepage/contact')?>"><h4>Contact</h4></a>
+                        <a class="nav-link <?=($this->uri->segment(2)==='contact')?'active':''?>" href="<?php echo base_url('Homepage/contact')?>"><h4>Contact</h4></a>
                     </li>
                     <!-- <li>
                         <a href = "<?php echo base_url('index.php/user/login'); ?>"><button style="float:right; position:right" class="btn btn-primary navbar-btn"><h4>Login</h4></button></a>
