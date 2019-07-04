@@ -39,9 +39,12 @@
             $this->load->model('Customers_model');
             $data['customer'] = $this->Customers_model->get_customer_data($this->session->userdata('user_id'));
 
+            $this->load->model('Notifications_model');
+            $data['customer_notifications'] = $this->Notifications_model->get_customer_notifications($this->session->userdata('user_id'));
+
             if($this->form_validation->run() == false){
 
-               $this->load->view('customer/header');
+               $this->load->view('customer/header',$data);
                $this->load->view('customer/import_request',$data);
                $this->load->view('customer/footer');
             }else{
@@ -69,9 +72,12 @@
             $this->load->model('Customers_model');
             $data['customer'] = $this->Customers_model->get_customer_data($this->session->userdata('user_id'));
 
+            $this->load->model('Notifications_model');
+            $data['customer_notifications'] = $this->Notifications_model->get_customer_notifications($this->session->userdata('user_id'));
+
             if($this->form_validation->run() == false){
 
-               $this->load->view('customer/header');
+               $this->load->view('customer/header',$data);
                $this->load->view('customer/export_request',$data);
                $this->load->view('customer/footer');
             }else{
