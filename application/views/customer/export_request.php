@@ -14,7 +14,7 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="form-group">
                     <label>Container Type</label>
-                    <select name="container_type" id="type" required>
+                    <select class="form-control" name="container_type" id="type" required>
                         <option value="20ft">20ft</option>
                         <option value="40ft">40ft</option>
                     </select>

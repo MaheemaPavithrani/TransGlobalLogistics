@@ -4,9 +4,9 @@
         <img src="https://whitelightgrp.com/wp-content/uploads/istock-968819844-1024x1024.jpg" alt="">
     </div>
 <div class="col-md-9">
-    <br><br><br><br><br>
+    <br><br><br><br>
     <h2 class="text-center"><?php echo $title; ?></h2>
-    <br><br>
+    <br>
     <?php echo validation_errors();?>
 
     <?php echo form_open('customer/send_import_request')?>
@@ -14,7 +14,7 @@
             <div class="col-md-4 col-md-offset-4">
                 <div class="form-group">
                     <label>Container Type</label>
-                    <select name="container_type" id="type" required>
+                    <select class="form-control" name="container_type" id="type" required>
                         <option value="20">20ft</option>
                         <option value="40">40ft</option>
                     </select>
@@ -51,6 +51,7 @@
                     <label>Notes</label>
                     <input type="text" class="form-control" name="notes" placeholder="Notes" required>
                 </div>
+                <br>
                 <input type="hidden" value=<?php echo $customer["id"]; ?> name="customer_id">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>

@@ -1,7 +1,7 @@
 <div class="row" style="width:100%">
 
-<div class="image-wrapper col-md-2" style="overflow:hidden; height:100%">
-    <img src="http://cdn.osxdaily.com/wp-content/uploads/2014/05/galactic-clouds-spacey.jpg" alt="">
+<div class="image-wrapper col-md-2" style="overflow:hidden; height:100%; background-repeat:repeat">
+    <img src="http://cdn.osxdaily.com/wp-content/uploads/2014/05/galactic-clouds-spacey.jpg" alt="" style="height:2700px">
 </div>
 <div class="col-md-10">
 

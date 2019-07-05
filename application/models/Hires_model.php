@@ -235,9 +235,9 @@
             $this->db->where($table.'.driver_id', $driver_id);
 
             if($table == 'imports'){
-                $this->db->where('DATE(container_pickup_datetime) >',date('Y-m-d'));
+                $this->db->where('DATE(container_pickup_datetime) >=',date('Y-m-d'));
             }else{
-                $this->db->where('DATE(pickup_datetime) >',date('Y-m-d'));
+                $this->db->where('DATE(pickup_datetime) >=',date('Y-m-d'));
             }
             $query = $this->db->get(); 
             

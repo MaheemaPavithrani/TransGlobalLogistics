@@ -18,7 +18,7 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleInputAddress2" class="text-uppercase">Date of Birth</label>
-                        <input type="text" class="form-control" placeholder="" name="dob" required>
+                        <input type="date" class="form-control" placeholder="" name="dob" required>
                     </div>
                     <div class="form-group">
                         <label for="exampleInputTown1" class="text-uppercase">Email</label>
