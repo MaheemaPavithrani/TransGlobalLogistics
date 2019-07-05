@@ -145,7 +145,7 @@
 
             $this->Notifications_model->mark_read($notification_id);
 
-            redirect('Customer/manage_hires');
+            redirect('../Customer/manage_hires');
          }
 
          public function contact(){
