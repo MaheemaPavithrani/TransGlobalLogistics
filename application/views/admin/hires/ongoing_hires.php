@@ -48,7 +48,8 @@
                                 data-lorry = "<?php echo $import['v_no']; ?>"
                             >More
                         </button>
-                        <a href="<?php echo base_url('admin/mark_completed/imports/'.$import['id'].'/'.$import['driver_id'])?>" class="btn btn-success">Completed</a>
+                        <input type="hidden" value="<?php echo $import['c_id']; ?>" name="customer">
+                        <a href="<?php echo base_url('admin/mark_completed/imports/'.$import['id'].'/'.$import['driver_id'].'/'.$import['c_id'])?>" class="btn btn-success">Completed</a>
                     </td>
                     </tr>
                 <?php endforeach;?>
@@ -120,7 +121,8 @@
                                 data-lorry = "<?php echo $export['v_no']; ?>"
                             >More
                         </button>
-                        <a href="<?php echo base_url('admin/mark_completed/exports/'.$export['id'].'/'.$export['driver_id'])?>" class="btn btn-success">Completed</a>
+                        <input type="hidden" value="<?php echo $export['c_id']; ?>" name="customer">
+                        <a href="<?php echo base_url('admin/mark_completed/exports/'.$export['id'].'/'.$export['driver_id'].'/'.$export['c_id'])?>" class="btn btn-success">Completed</a>
                     </td>
                     </tr>
                 <?php endforeach;?>

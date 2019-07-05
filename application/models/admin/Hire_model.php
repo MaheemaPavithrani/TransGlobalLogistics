@@ -67,7 +67,7 @@
 
             if($export_id == false){
 
-                $this->db->select('exports.*, c.name as c_name, d.name as d_name, v.lorry_no as v_no');
+                $this->db->select('exports.*, c.name as c_name, c.id as c_id, d.name as d_name, v.lorry_no as v_no');
                 $this->db->from('exports');
                 $this->db->order_by('pickup_datetime','desc');
                 $this->db->join('customers as c','exports.customer_id = c.id');
@@ -80,7 +80,7 @@
                 return $query->result_array();
             }
 
-            $this->db->select('exports.*, c.name as c_name, d.name as d_name, v.lorry_no as v_no');
+            $this->db->select('exports.*, c.name as c_name, c.id as c_id, d.name as d_name, v.lorry_no as v_no');
             $this->db->from('exports');
             $this->db->order_by('pickup_datetime','desc');
             $this->db->join('customers as c','exports.customer_id = c.id');
@@ -99,7 +99,7 @@
 
             if($import_id == false){
 
-                $this->db->select('imports.*, c.name as c_name, d.name as d_name, v.lorry_no as v_no');
+                $this->db->select('imports.*, c.name as c_name, c.id as c_id, d.name as d_name, v.lorry_no as v_no');
                 $this->db->from('imports');
                 $this->db->order_by('container_pickup_datetime','desc');
                 $this->db->join('customers as c','imports.customer_id = c.id');
@@ -112,7 +112,7 @@
                 return $query->result_array();
             }
 
-            $this->db->select('imports.*, c.name as c_name, d.name as d_name, v.lorry_no as v_no');
+            $this->db->select('imports.*, c.name as c_name, c.id as c_id, d.name as d_name, v.lorry_no as v_no');
             $this->db->from('imports');
             $this->db->order_by('container_pickup_datetime','desc');
             $this->db->join('customers as c','imports.customer_id = c.id');

@@ -356,13 +356,19 @@
             $this->load->view('admin/footer');
         }
 
-        public function mark_completed($type,$hire_id,$driver_id){
+        public function mark_completed($type,$hire_id,$driver_id,$customer_id){
             
             $this->load->model('admin/Hire_model');
             $this->Hire_model->mark_completed($type,$hire_id);
 
             $this->load->model('admin/Driver_model');
             $this->Driver_model->mark_completed($driver_id);
+
+            $this->load->model('Customers_model');
+            $customer_user_id = $this->Customers_model->get_user_id($customer_id);
+
+            $this->load->model('admin/Notification_model');
+            $this->Notification_model->mark_completed($type,$hire_id,$customer_user_id['user_id']);
 
             redirect('admin/get_ongoing_hires');
 

@@ -48,5 +48,18 @@
             return $this->db->update('notifications',$data);
         }
 
+        public function mark_completed($type,$hire_id,$customer_id){
+            $data = array(
+                'sender_id' => 1,
+                'title' => "Hire Completed",
+                'receiver_id' => $customer_id,
+                'message' => 'Hire Completed Successfully',
+                'hire_id' => $hire_id,
+                'hire_type' => $type
+            );
+
+            return $this->db->insert('notifications',$data);
+        }
+
     }
 ?>

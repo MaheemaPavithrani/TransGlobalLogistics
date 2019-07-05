@@ -87,6 +87,7 @@
             $this->db->join('drivers as d','exports.driver_id = d.id');
             $this->db->join('vehicles as v','d.id = v.driver_id');
             $this->db->where('exports.completed',0);
+            $this->db->where('exports.driver_accepted',1);
             $this->db->where('exports.driver_id !=',null);
             $this->db->where('exports.customer_id',$customer_id);
             $query = $this->db->get();                                    
@@ -103,6 +104,7 @@
             $this->db->join('drivers as d','imports.driver_id = d.id');
             $this->db->join('vehicles as v','d.id = v.driver_id');
             $this->db->where('imports.completed',0);
+            $this->db->where('imports.driver_accepted',1);
             $this->db->where('imports.driver_id !=',null);
             $this->db->where('imports.customer_id',$customer_id);
             $query = $this->db->get();
