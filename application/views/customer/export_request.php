@@ -1,7 +1,7 @@
 <div class="row" style="width:100%">
 
     <div class="image-wrapper col-md-3" style="overflow:hidden">
-        <img src="https://www.faxination.com/wp-content/uploads/2016/10/1960x980-logistics1-1024x1024.jpg" alt="">
+        <img src="../images/exportreq.jpg" alt="">
     </div>
 <div class="col-md-9">
     <br><br><br><br><br>

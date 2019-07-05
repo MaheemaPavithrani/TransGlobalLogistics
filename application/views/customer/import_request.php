@@ -1,7 +1,7 @@
 <div class="row" style="width:100%">
 
     <div class="image-wrapper col-md-3" style="overflow:hidden">
-        <img src="https://whitelightgrp.com/wp-content/uploads/istock-968819844-1024x1024.jpg" alt="">
+        <img src="../images/importreq.jpg" alt="">
     </div>
 <div class="col-md-9">
     <br><br><br><br>

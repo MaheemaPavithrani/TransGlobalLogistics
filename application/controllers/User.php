@@ -93,7 +93,7 @@
             $userdata = array('user_id', 'user_type');
             $this->session->unset_userdata($userdata);
 
-            redirect('Homepage/index');
+            redirect('../Homepage/index');
         }
 
         public function update_password($user){

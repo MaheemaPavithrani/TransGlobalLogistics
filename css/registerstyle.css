@@ -7,7 +7,7 @@ float:left;
 width:100%;
 padding : 50px 0;
 }
-.banner-sec{background:url(http://coastaltrans.org/wp-content/uploads/2018/12/lower-images-truck.jpg)  no-repeat  bottom; background-size:cover; min-height:500px; border-radius: 0 10px 10px 0; padding:0;}
+.banner-sec{background:url(../images/register.jpg)  no-repeat  bottom; background-size:cover; min-height:500px; border-radius: 0 10px 10px 0; padding:0;}
 .containers{background:#fff; border-radius: 10px;}
 .carousel-inner{border-radius:0 10px 10px 0;}
 .carousel-caption{text-align:left; left:5%;}

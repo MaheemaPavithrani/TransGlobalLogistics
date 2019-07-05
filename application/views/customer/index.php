@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
-                    <img class="card-img-top" src="https://nowthatslogistics.com/wp-content/uploads/2019/06/As-Ocean-Rates-Rise-1200-350x250.png" alt="Card image cap">
+                    <img class="card-img-top" src="../../images/import.png" alt="Card image cap">
                     <div class="card-block p-3">
                         <h4 class="card-title">Place Your Import Hire</h4>
                         <p class="card-text"></p>
@@ -19,7 +19,7 @@
             </div>
             <div class="col-md-4">
                 <div class="card">
-                    <img class="card-img-top" src="http://dzi.com.pk/wp-content/uploads/2018/01/58298a9dbb9c4-350x250.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="../../images/export.jpg" alt="Card image cap">
                     <div class="card-block p-3">
                         <h4 class="card-title">Place Your Export Hire</h4>
                         <p class="card-text"></p>
@@ -29,7 +29,7 @@
             </div>
             <div class="col-md-4">
                 <div class="card">
-                    <img class="card-img-top" src="https://www.cloudberrylab.com/resources/wp-content/uploads/2018/09/6_06-350x250.png" alt="Card image cap">
+                    <img class="card-img-top" src="../../images/manage.png" alt="Card image cap">
                     <div class="card-block p-3">
                         <h4 class="card-title">Manage Your Hires</h4>
                         <p class="card-text"></p>
@@ -46,7 +46,7 @@
         <br><br><br>
         <div class="row">
             <div style="overflow:hidden; height:550px; padding-top:0px;" class="col-md-6">
-                <img src="https://www.concargo.com/wp-content/uploads/2018/04/ser1.png" alt="">
+                <img src="../../images/index1.png" alt="">
             </div>
             <div class="col-md-6">
                 <h2><strong>Trans Global Logistics Pvt Ltd.</strong></h2>
@@ -72,13 +72,13 @@
         </ol>
         <div class="carousel-inner" style="height:800px" role="listbox">
             <div class="carousel-item active">
-                <img class="d-block img-fluid" src="https://www.maslogistics.org/assets/img/logistic.jpg" alt="First slide">
+                <img class="d-block img-fluid" src="../../images/index2.jpg" alt="First slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block img-fluid" src="http://www.twinstarsg.com/wp-content/uploads/2015/06/image-61.jpg" alt="First slide">
+                <img class="d-block img-fluid" src="../../images/index3.jpg" alt="First slide">
             </div>
             <div class="carousel-item">
-                <img class="d-block img-fluid" src="https://www.aeb.com/media/img/markus_hero.jpg" alt="First slide">
+                <img class="d-block img-fluid" src="../../images/index4.jpg" alt="First slide">
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselLogo" role="button" data-slide="prev">
@@ -107,7 +107,7 @@
                 </p>
             </div>
             <div class="col-md-4 mt-4">
-                <img class="card-img-top" src="https://livedemo00.template-help.com/wt_64426_v1/images/landing-trucking-07-720x459.jpg" alt="Card image cap">
+                <img class="card-img-top" src="../../images/index5.jpg" alt="Card image cap">
             </div>
         </div>
     <!-- </div> -->
@@ -120,7 +120,7 @@
                 <div class="col">
                 <div class="card">
                     <div class="card-body">
-                    <img class="card-img-top" src="https://livedemo00.template-help.com/wt_64426_v1/images/landing-trucking-original-2.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="../../images/index6.jpg" alt="Card image cap">
                     <hr>
                     <h5 class="card-title">BEST SERVICE</h5>
                     <p class="card-text">Our mission is to attract, satisfy and retain our beloved customers by providing Best in Class transportation solutions and fostering a profitable, disciplined culture service.</p>
@@ -130,7 +130,7 @@
                 <div class="col">
                 <div class="card">
                     <div class="card-body">
-                    <img class="card-img-top" src="https://source1security.com/wp-content/uploads/2018/07/business-security-and-safety-the-difference.jpg" alt="Card image cap">
+                    <img class="card-img-top" src="../../images/index7.jpg" alt="Card image cap">
                     <hr>
                     <h5 class="card-title">SAFETY & SECURITY</h5>
                     <p class="card-text">Safety for our employees, customers and community we work in will always remain our primary focus in all the policies, procedures and programs that govern our business.</p>
@@ -140,7 +140,7 @@
                 <div class="col">
                 <div class="card">
                     <div class="card-body">
-                    <img class="card-img-top" src="https://www.safetyandhealthmagazine.com/ext/resources/images/news/transportation/semi-trucks/truck-driver2.jpg?1485370910" alt="Card image cap">
+                    <img class="card-img-top" src="../../images/index8.jpg" alt="Card image cap">
                     <hr>
                     <h5 class="card-title">QUALIFIED EMPLOYEES</h5>
                     <p class="card-text">Our team is comprised of some of the best qualified managers and drivers in the industry. We can match your transportation needs and preferences of cargo delivery.</p>
